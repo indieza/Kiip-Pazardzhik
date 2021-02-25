@@ -3,47 +3,160 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - KiipPazardzhik</title>
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/css/site.css" />
+    <title>@ViewData["Title"] - Sharemundo Bulgaria</title>
+    <link rel="icon" href="~/fav_icon.ico" type="image/x-icon" />
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900&display=swap" rel="stylesheet">
+    <!-- Bootstrap core CSS -->
+    <link href="~/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Additional CSS Files -->
+    <link rel="stylesheet" href="~/assets/css/fontawesome.css">
+    <link rel="stylesheet" href="~/assets/css/templatemo-finance-business.css">
+    <link rel="stylesheet" href="~/assets/css/owl.css">
+    <script src="https://kit.fontawesome.com/608d9f3754.js" crossorigin="anonymous"></script>
 </head>
 <body>
-    <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+    <!-- ***** Preloader Start ***** -->
+    <div id="preloader">
+        <div class="jumper">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+    <!-- ***** Preloader End ***** -->
+
+    <header class="">
+        <nav class="navbar navbar-expand-lg">
             <div class="container">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">KiipPazardzhik</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">
+                    <img style="width: 200px; height: 30px" src="~/Logo.png" />
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
-                    <partial name="_LoginPartial" />
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item active">
+                            <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index">
+                                "Home"
+                                <span class="sr-only">(current)</span>
+                            </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                            <a class="nav-link" asp-area="" asp-controller="Company" asp-action="Index">
+                                "Company"
+                            </a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-area="" asp-controller="Services" asp-action="Index">
+                                "Services"
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-area="" asp-controller="Career" asp-action="Index">
+                                "Career"
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-area="" asp-controller="ContactUs" asp-action="Index">
+                                "Contact Us"
+                            </a>
+                        </li>
+
+                        <partial name="_LoginPartial" />
                     </ul>
                 </div>
             </div>
         </nav>
     </header>
-    <div class="container">
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
-    </div>
 
-    <footer class="border-top footer text-muted">
+    @RenderBody()
+
+    <!-- Footer Starts Here -->
+    <footer>
         <div class="container">
-            &copy; 2021 - KiipPazardzhik - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+            <div class="row">
+                <div class="col-md-2 footer-item">
+                    <h4>"Site Map"</h4>
+                    <ul class="menu-list">
+                        <li>
+                            <a asp-area="" asp-controller="Home" asp-action="Index">
+                                "Home"
+                            </a>
+                        </li>
+                        <li>
+                            <a asp-area="" asp-controller="Company" asp-action="Index">
+                                "Company"
+                            </a>
+                        </li>
+                        <li>
+                            <a asp-area="" asp-controller="Services" asp-action="Index">
+                                "Services"
+                            </a>
+                        </li>
+                        <li>
+                            <a asp-area="" asp-controller="Career" asp-action="Index">
+                                "Career"
+                            </a>
+                        </li>
+                        <li>
+                            <a asp-area="" asp-controller="ContactUs" asp-action="Index">
+                                "Contact Us"
+                            </a>
+                        </li>
+
+                        <partial name="_LoginFooterPartial" />
+                    </ul>
+                </div>
+                <div class="col-md-8 footer-item">
+                    <h4>"Open Job Positions"</h4>
+                    <ul class="menu-list" id="openJobPositions">
+                    </ul>
+                </div>
+            </div>
         </div>
     </footer>
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
+
+    <div class="sub-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <p>
+                        "Copyright" &copy; @DateTime.UtcNow.Year "Sharemundo Bulgaria, Ltd".
+                    </p>
+                    <p>
+                        "Design and Development":
+                        <a style="color: dodgerblue" href="https://github.com/indieza" target="_blank">
+                            Simeon Valev(indieza)
+                        </a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Bootstrap core JavaScript -->
+    <script src="~/vendor/jquery/jquery.min.js"></script>
+    <script src="~/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Additional Scripts -->
+    <script src="~/assets/js/custom.js"></script>
+    <script src="~/assets/js/owl.js"></script>
+    <script src="~/assets/js/slick.js"></script>
+    <script src="~/js/tabsScript.js"></script>
+    <script src="~/js/site.js"></script>
+    @*<script src="~/assets/js/accordions.js"></script>*@
+
+    <script language="text/Javascript">
+        cleared[0] = cleared[1] = cleared[2] = 0; //set a cleared flag for each field
+        function clearField(t) {                   //declaring the array outside of the
+            if (!cleared[t.id]) {                      // function makes it static and global
+                cleared[t.id] = 1;  // you could use true and false, but that's more typing
+                t.value = '';         // with more chance of typos
+                t.style.color = '#fff';
+            }
+        }
+    </script>
     @RenderSection("Scripts", required: false)
 </body>
 </html>

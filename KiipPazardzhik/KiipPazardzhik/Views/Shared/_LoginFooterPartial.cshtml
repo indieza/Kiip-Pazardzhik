@@ -1,0 +1,39 @@
+﻿@using Microsoft.AspNetCore.Identity
+@using KiipPazardzhik.Models.Users
+
+<ul class="navbar-nav">
+    @if (this.SignInManager.IsSignedIn(User))
+    {
+        <li>
+            <a asp-area="Identity" asp-page="/Account/Manage/Index">
+                "Profile"
+            </a>
+        </li>
+        @if (this.User.IsInRole(GlobalConstants.AdministratorRole))
+        {
+            <li>
+                <a asp-area="Administration" asp-controller="Dashboard" asp-action="Index">
+                    "Dashboard"
+                </a>
+            </li>
+        }
+        <li>
+            <a asp-area="Identity" asp-page="/Account/Logout">
+                "Logout"
+            </a>
+        </li>
+    }
+    else
+    {
+        <li>
+            <a asp-area="Identity" asp-page="/Account/Register">
+                "Register"
+            </a>
+        </li>
+        <li>
+            <a asp-area="Identity" asp-page="/Account/Login">
+                "Login"
+            </a>
+        </li>
+    }
+</ul>
