@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - Sharemundo Bulgaria</title>
+    <title>@ViewData["Title"] - КИИП Пазарджик</title>
     <link rel="icon" href="~/fav_icon.ico" type="image/x-icon" />
     <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900&display=swap" rel="stylesheet">
     <!-- Bootstrap core CSS -->
@@ -30,7 +30,7 @@
         <nav class="navbar navbar-expand-lg">
             <div class="container">
                 <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">
-                    <img style="width: 200px; height: 30px" src="~/Logo.png" />
+                    <img style="width: 55px; height: 55px" src="~/Logo.png" />
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -39,28 +39,38 @@
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item active">
                             <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index">
-                                "Home"
+                                Начало
                                 <span class="sr-only">(current)</span>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" asp-area="" asp-controller="Company" asp-action="Index">
-                                "Company"
+                            <a class="nav-link" asp-area="" asp-controller="News" asp-action="Index">
+                                Новини
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" asp-area="" asp-controller="Services" asp-action="Index">
-                                "Services"
+                            <a class="nav-link" asp-area="" asp-controller="Information" asp-action="Index">
+                                Информация
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" asp-area="" asp-controller="Career" asp-action="Index">
-                                "Career"
+                            <a class="nav-link" asp-area="" asp-controller="Register" asp-action="Index">
+                                Регистър
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" asp-area="" asp-controller="ContactUs" asp-action="Index">
-                                "Contact Us"
+                            <a class="nav-link" asp-area="" asp-controller="DesignOffices" asp-action="Index">
+                                Проектантски Бюра
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-area="" asp-controller="Membership" asp-action="Index">
+                                Членство
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-area="" asp-controller="Regulations" asp-action="Index">
+                                Нормативна Уредба
                             </a>
                         </li>
 
@@ -78,31 +88,46 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-2 footer-item">
-                    <h4>"Site Map"</h4>
+                    <h4>Карта на сайта</h4>
                     <ul class="menu-list">
                         <li>
                             <a asp-area="" asp-controller="Home" asp-action="Index">
-                                "Home"
+                                Начало
                             </a>
                         </li>
                         <li>
-                            <a asp-area="" asp-controller="Company" asp-action="Index">
-                                "Company"
+                            <a asp-area="" asp-controller="News" asp-action="Index">
+                                Новини
                             </a>
                         </li>
                         <li>
-                            <a asp-area="" asp-controller="Services" asp-action="Index">
-                                "Services"
+                            <a asp-area="" asp-controller="Information" asp-action="Index">
+                                Информация
                             </a>
                         </li>
                         <li>
-                            <a asp-area="" asp-controller="Career" asp-action="Index">
-                                "Career"
+                            <a asp-area="" asp-controller="Register" asp-action="Index">
+                                Регистър
                             </a>
                         </li>
                         <li>
-                            <a asp-area="" asp-controller="ContactUs" asp-action="Index">
-                                "Contact Us"
+                            <a asp-area="" asp-controller="DesignOffices" asp-action="Index">
+                                Проектантски Бюра
+                            </a>
+                        </li>
+                        <li>
+                            <a asp-area="" asp-controller="Membership" asp-action="Index">
+                                Членство
+                            </a>
+                        </li>
+                        <li>
+                            <a asp-area="" asp-controller="Regulations" asp-action="Index">
+                                Нормативна Уредба
+                            </a>
+                        </li>
+                        <li>
+                            <a asp-area="" asp-controller="Contacts" asp-action="Index">
+                                Контакти
                             </a>
                         </li>
 
@@ -110,7 +135,7 @@
                     </ul>
                 </div>
                 <div class="col-md-8 footer-item">
-                    <h4>"Open Job Positions"</h4>
+                    <h4>Регионални колегии</h4>
                     <ul class="menu-list" id="openJobPositions">
                     </ul>
                 </div>

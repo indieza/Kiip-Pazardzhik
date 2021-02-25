@@ -6,20 +6,20 @@
     {
         <li>
             <a asp-area="Identity" asp-page="/Account/Manage/Index">
-                "Profile"
+                Профил
             </a>
         </li>
         @if (this.User.IsInRole(GlobalConstants.AdministratorRole))
         {
             <li>
                 <a asp-area="Administration" asp-controller="Dashboard" asp-action="Index">
-                    "Dashboard"
+                    Админ Панел
                 </a>
             </li>
         }
         <li>
             <a asp-area="Identity" asp-page="/Account/Logout">
-                "Logout"
+                Изход
             </a>
         </li>
     }
@@ -27,12 +27,12 @@
     {
         <li>
             <a asp-area="Identity" asp-page="/Account/Register">
-                "Register"
+                Регистрация
             </a>
         </li>
         <li>
             <a asp-area="Identity" asp-page="/Account/Login">
-                "Login"
+                Вход
             </a>
         </li>
     }

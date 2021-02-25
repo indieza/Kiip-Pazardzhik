@@ -253,7 +253,7 @@ header {
     }
 
 .background-header .navbar {
-    padding: 10px 0px;
+    padding: 0px 0px;
 }
 
 .background-header {
@@ -634,6 +634,7 @@ ul.slick-dots {
 
 .services {
     margin-top: 140px;
+    margin-bottom: 25px;
 }
 
 .service-item img {
