@@ -1,4 +1,5 @@
-﻿using KiipPazardzhik.Models.Users;
+﻿using KiipPazardzhik.Models;
+using KiipPazardzhik.Models.Users;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -14,6 +15,12 @@ namespace KiipPazardzhik.Data
         {
         }
 
+        public DbSet<Person> People { get; set; }
+
+        public DbSet<WebsiteFile> WebsiteFiles { get; set; }
+
+        public DbSet<News> News { get; set; }
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             base.OnConfiguring(optionsBuilder);
@@ -21,7 +28,12 @@ namespace KiipPazardzhik.Data
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
-            // Go entities
+            builder.Entity<News>()
+                .HasMany(x => x.WebsiteFiles)
+                .WithOne(x => x.News)
+                .HasForeignKey(x => x.NewsId)
+                .IsRequired(false);
+
             base.OnModelCreating(builder);
         }
     }
