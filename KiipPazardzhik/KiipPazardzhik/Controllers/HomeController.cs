@@ -1,4 +1,7 @@
 ﻿using KiipPazardzhik.Models;
+using KiipPazardzhik.Models.Users;
+using KiipPazardzhik.Services.Home;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
@@ -11,13 +14,20 @@ namespace KiipPazardzhik.Controllers
 {
     public class HomeController : Controller
     {
-        public HomeController()
+        private readonly UserManager<ApplicationUser> userManager;
+        private readonly IHomeService homeServices;
+
+        public HomeController(UserManager<ApplicationUser> userManager, IHomeService homeServices)
         {
+            this.userManager = userManager;
+            this.homeServices = homeServices;
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            return View();
+            await this.homeServices.SubmitAllRoles();
+
+            return this.View();
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

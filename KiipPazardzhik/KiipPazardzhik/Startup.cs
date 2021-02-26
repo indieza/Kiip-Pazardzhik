@@ -14,6 +14,7 @@ using Microsoft.Extensions.Options;
 using KiipPazardzhik.Services.Cloud;
 using KiipPazardzhik.Data;
 using KiipPazardzhik.Models.Users;
+using KiipPazardzhik.Services.Home;
 
 namespace KiipPazardzhik
 {
@@ -72,6 +73,7 @@ namespace KiipPazardzhik
             services.AddSingleton(cloudinary);
 
             services.AddTransient<IEmailSender, EmailSender>();
+            services.AddTransient<IHomeService, HomeService>();
 
             // Register Administration Services
             //services.AddTransient<IDashboardService, DashboardService>();
