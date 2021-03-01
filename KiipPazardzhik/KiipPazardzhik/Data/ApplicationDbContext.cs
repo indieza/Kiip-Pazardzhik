@@ -21,6 +21,8 @@ namespace KiipPazardzhik.Data
 
         public DbSet<News> News { get; set; }
 
+        public DbSet<RegionalCollege> RegionalColleges { get; set; }
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             base.OnConfiguring(optionsBuilder);

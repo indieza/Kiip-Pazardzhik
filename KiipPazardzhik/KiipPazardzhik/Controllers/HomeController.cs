@@ -1,6 +1,9 @@
-﻿using KiipPazardzhik.Models;
+﻿using KiipPazardzhik.Constraints;
+using KiipPazardzhik.Models;
 using KiipPazardzhik.Models.Users;
 using KiipPazardzhik.Services.Home;
+using KiipPazardzhik.ViewModels.Home.ViewModels;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
@@ -27,13 +30,33 @@ namespace KiipPazardzhik.Controllers
         {
             await this.homeServices.SubmitAllRoles();
 
-            return this.View();
+            var model = new HomeViewModel
+            {
+                HasAdmin = await this.homeServices.HasAdministrator(),
+            };
+
+            return this.View(model);
+        }
+
+        [Authorize]
+        public async Task<IActionResult> MakeYourselfAdmin()
+        {
+            var hasAdmin = await this.homeServices.HasAdministrator();
+
+            if (hasAdmin)
+            {
+                return this.BadRequest();
+            }
+
+            var currentUser = await this.userManager.GetUserAsync(this.User);
+            await this.homeServices.MakeYourselfAdmin(currentUser);
+            return this.RedirectToAction("Index", "Home");
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+            return this.View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? this.HttpContext.TraceIdentifier });
         }
     }
 }
