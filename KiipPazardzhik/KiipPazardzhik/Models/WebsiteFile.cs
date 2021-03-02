@@ -1,12 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Threading.Tasks;
+﻿// <copyright file="WebsiteFile.cs" company="Kiip Pazardzhik">
+// Copyright (c) Kiip Pazardzhik. All rights reserved.
+// </copyright>
 
 namespace KiipPazardzhik.Models
 {
+    using System;
+    using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
+    using System.ComponentModel.DataAnnotations.Schema;
+    using System.Linq;
+    using System.Threading.Tasks;
+
     public class WebsiteFile
     {
         public WebsiteFile()
