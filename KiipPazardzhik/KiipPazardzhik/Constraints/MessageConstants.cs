@@ -19,5 +19,8 @@ namespace KiipPazardzhik.Constraints
 
         public const string InvalidInputModel =
             "Твоят инпут модел е невалиден!";
+
+        public const string SuccessfullyAddPerson =
+            "Успешно създаде човек.";
     }
 }
