@@ -35,9 +35,9 @@
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" id="userDropdown" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
-                    <a class="dropdown-item" asp-area="Identity" asp-page="/Account/Manage/Index">Settings</a>
+                    <a class="dropdown-item" asp-area="Identity" asp-page="/Account/Manage/Index">Настройки</a>
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" asp-area="Identity" asp-page="/Account/Logout">Logout</a>
+                    <a class="dropdown-item" asp-area="Identity" asp-page="/Account/Logout">Изход</a>
                 </div>
             </li>
         </ul>
@@ -52,97 +52,56 @@
                             <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                             Панел
                         </a>
-                        <div class="sb-sidenav-menu-heading">Interface</div>
-                        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#addLayout" aria-expanded="false" aria-controls="collapseLayouts">
-                            <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
-                            Add Layouts
+                        <div class="sb-sidenav-menu-heading">Общи действия</div>
+                        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#people" aria-expanded="false" aria-controls="collapseLayouts">
+                            <div class="sb-nav-link-icon"><i class="fas fa-users"></i></div>
+                            Хора
                             <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                         </a>
-                        <div class="collapse" id="addLayout" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
+                        <div class="collapse" id="people" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
                             <nav class="sb-sidenav-menu-nested nav">
                                 <a class="nav-link" asp-area="Administration" asp-controller="AddSectionToPage" asp-action="Index">
-                                    Add section to page
+                                    Добави човек
                                 </a>
                                 <a class="nav-link" asp-area="Administration" asp-controller="AddPartToSection" asp-action="Index">
-                                    Add part to section
+                                    Промени човек
+                                </a>
+                                <a class="nav-link" asp-area="Administration" asp-controller="AddPartToSection" asp-action="Index">
+                                    Изтрий човек
                                 </a>
                             </nav>
                         </div>
-                        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#removeLayout" aria-expanded="false" aria-controls="collapseLayouts">
-                            <div class="sb-nav-link-icon"><i class="fas fa-trash-alt"></i></div>
-                            Remove Layouts
+                        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#news" aria-expanded="false" aria-controls="collapseLayouts">
+                            <div class="sb-nav-link-icon"><i class="far fa-newspaper"></i></div>
+                            Новини
                             <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                         </a>
-                        <div class="collapse" id="removeLayout" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
+                        <div class="collapse" id="news" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
                             <nav class="sb-sidenav-menu-nested nav">
-                                <a class="nav-link" asp-area="Administration" asp-controller="RemoveSection" asp-action="Index">
-                                    Remove section
+                                <a class="nav-link" asp-area="Administration" asp-controller="AddSectionToPage" asp-action="Index">
+                                    Добави новина
                                 </a>
-                                <a class="nav-link" asp-area="Administration" asp-controller="RemovePart" asp-action="Index">
-                                    Remove part
+                                <a class="nav-link" asp-area="Administration" asp-controller="AddPartToSection" asp-action="Index">
+                                    Промени новина
+                                </a>
+                                <a class="nav-link" asp-area="Administration" asp-controller="AddPartToSection" asp-action="Index">
+                                    Изтрий новина
                                 </a>
                             </nav>
                         </div>
-                        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#editLayout" aria-expanded="false" aria-controls="collapseLayouts">
-                            <div class="sb-nav-link-icon"><i class="fas fa-edit"></i></div>
-                            Edit Layouts
-                            <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-                        </a>
-                        <div class="collapse" id="editLayout" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
-                            <nav class="sb-sidenav-menu-nested nav">
-                                <a class="nav-link" asp-area="Administration" asp-controller="EditSection" asp-action="Index">
-                                    Edit section
-                                </a>
-                                <a class="nav-link" asp-area="Administration" asp-controller="EditPart" asp-action="Index">
-                                    Edit part
-                                </a>
-                                <a class="nav-link" asp-area="Administration" asp-controller="EditSectionsPosition" asp-action="Index">
-                                    Edit sections position
-                                </a>
-                                <a class="nav-link" asp-area="Administration" asp-controller="EditPartsPosition" asp-action="Index">
-                                    Edit parts position
-                                </a>
-                            </nav>
-                        </div>
-                        <div class="sb-sidenav-menu-heading">Job actions</div>
-                        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#career" aria-expanded="false" aria-controls="collapseLayouts">
-                            <div class="sb-nav-link-icon"><i class="fas fa-handshake"></i></div>
-                            Career
-                            <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-                        </a>
-                        <div class="collapse" id="career" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
-                            <nav class="sb-sidenav-menu-nested nav">
-                                <a class="nav-link" asp-area="Administration" asp-controller="AddJobPosition" asp-action="Index">
-                                    <div class="sb-nav-link-icon"><i class="fas fa-briefcase"></i></div>
-                                    Add position
-                                </a>
-                                <a class="nav-link" asp-area="Administration" asp-controller="EditJobPosition" asp-action="Index">
-                                    <div class="sb-nav-link-icon"><i class="fas fa-edit"></i></div>
-                                    Edit position
-                                </a>
-                                <a class="nav-link" asp-area="Administration" asp-controller="RemoveJobPosition" asp-action="Index">
-                                    <div class="sb-nav-link-icon"><i class="fas fa-trash-alt"></i></div>
-                                    Remove position
-                                </a>
-                                <a class="nav-link" asp-area="Administration" asp-controller="AllJobsCandidates" asp-action="Index">
-                                    <div class="sb-nav-link-icon"><i class="fas fa-user-tie"></i></div>
-                                    All candidates
-                                </a>
-                            </nav>
-                        </div>
-                        <div class="sb-sidenav-menu-heading">Website navigation</div>
+                        <div class="sb-sidenav-menu-heading">Уебсайт навигация</div>
                         <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index">
                             <div class="sb-nav-link-icon"><i class="fas fa-home"></i></div>
-                            Home
+                            Начало
                         </a>
                         <a class="nav-link" asp-area="Identity" asp-page="/Account/Manage/Index">
                             <div class="sb-nav-link-icon"><i class="fas fa-user"></i></div>
-                            Profile
+                            Профил
                         </a>
                     </div>
                 </div>
                 <div class="sb-sidenav-footer">
-                    <div class="small">Logged in as:</div>
+                    <div class="small">Влезнал като:</div>
                     <a asp-area="Identity" asp-page="/Account/Manage/Index">
                         @this.User.Identity.Name
                     </a>
