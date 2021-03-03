@@ -1,0 +1,154 @@
+﻿@{
+    ViewData["Title"] = "Панел";
+}
+
+@model DashboardBaseModel
+
+<h1 class="mt-4">Панел</h1>
+<hr />
+<partial name="_TempDataPartial" />
+<div class="row">
+    <div class="col-xl-3 col-md-6">
+        <div class="card bg-primary text-white mb-4">
+            <div class="card-body">@this.Model.DashboardViewModel.AllAdminsCount Администратори</div>
+        </div>
+    </div>
+    <div class="col-xl-3 col-md-6">
+        <div class="card bg-warning text-white mb-4">
+            <div class="card-body">@this.Model.DashboardViewModel.AllUsersCount ригистрирани потребители</div>
+            <div class="card-footer d-flex align-items-center justify-content-between">
+                <a class="small text-white stretched-link" href="#dataTable">Виж детайли</a>
+                <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+            </div>
+        </div>
+    </div>
+    <div class="col-xl-3 col-md-6">
+        <div class="card bg-success text-white mb-4">
+            <div class="card-body">0 open job positions</div>
+        </div>
+    </div>
+    <div class="col-xl-3 col-md-6">
+        <div class="card bg-danger text-white mb-4">
+            <div class="card-body">0 jobs candidates</div>
+            <div class="card-footer d-flex align-items-center justify-content-between">
+                <a class="small text-white stretched-link" asp-area="Administration" asp-controller="AllJobsCandidates" asp-action="Index">Виж детайли</a>
+                <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+            </div>
+        </div>
+    </div>
+</div>
+<hr />
+<h4>Добави администратор</h4>
+<form method="post" enctype="multipart/form-data">
+    <div class="row">
+        <div class="col-8">
+            <label asp-for="@Model.AddRemoveAdminInputModel.Username"></label>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-8">
+            <select class="form-control" asp-for="@Model.AddRemoveAdminInputModel.Username">
+                <option value="">Избери потребител...</option>
+                @foreach (var username in this.Model.DashboardViewModel.AllNotAdminsNames)
+                {
+                    <option value="@username">@username</option>
+                }
+            </select>
+        </div>
+        <div class="col-4">
+            <button asp-area="Administration" asp-controller="Dashboard" asp-action="AddAdministrator" class="btn btn-success">
+                Добави
+            </button>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-8">
+            <span asp-validation-for="@Model.AddRemoveAdminInputModel.Username" class="text-danger"></span>
+        </div>
+    </div>
+</form>
+<hr />
+<h4>Премахни администратор</h4>
+<form method="post" enctype="multipart/form-data">
+    <div class="row">
+        <div class="col-8">
+            <label asp-for="@Model.AddRemoveAdminInputModel.Username"></label>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-8">
+            <select class="form-control" asp-for="@Model.AddRemoveAdminInputModel.Username">
+                <option value="" selected disabled>Избери потребител...</option>
+                @foreach (var username in this.Model.DashboardViewModel.AllAdminsNames)
+                {
+                    <option value="@username">@username</option>
+                }
+            </select>
+        </div>
+        <div class="col-4">
+            <button asp-area="Administration" asp-controller="Dashboard" asp-action="RemoveAdministrator" class="btn btn-danger">
+                Премахни
+            </button>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-8">
+            <span asp-validation-for="@Model.AddRemoveAdminInputModel.Username" class="text-danger"></span>
+        </div>
+    </div>
+</form>
+<hr />
+<div class="card mb-4">
+    <div class="card-header">
+        <i class="fas fa-table mr-1"></i>
+        Всички регистрирани потребители
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>Потребителско име</th>
+                        <th>Име</th>
+                        <th>Презиме</th>
+                        <th>Фамилия</th>
+                        <th>Мейл</th>
+                        <th>Телефон</th>
+                        <th>Потвърден</th>
+                    </tr>
+                </thead>
+                <tfoot>
+                    <tr>
+                        <th>Потребителско име</th>
+                        <th>Име</th>
+                        <th>Презиме</th>
+                        <th>Фамилия</th>
+                        <th>Мейл</th>
+                        <th>Телефон</th>
+                        <th>Потвърден</th>
+                    </tr>
+                </tfoot>
+                <tbody>
+                    @foreach (var user in this.Model.DashboardViewModel.AllUsers)
+                    {
+                        <tr>
+                            <td>@user.UserName</td>
+                            <td>@user.FirstName</td>
+                            <td>@user.MiddleName</td>
+                            <td>@user.LastName</td>
+                            <td>@user.Email</td>
+                            <td>@user.PhoneNumber</td>
+                            <td>
+                                <span style="color: @(user.EmailConfirmed ? "green" : "red")">@user.EmailConfirmed</span>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
