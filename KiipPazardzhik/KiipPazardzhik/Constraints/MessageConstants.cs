@@ -22,5 +22,8 @@ namespace KiipPazardzhik.Constraints
 
         public const string SuccessfullyAddPerson =
             "Успешно създаде човек.";
+
+        public const string SuccessfullyDeletePerson =
+            "Успешно изтри човек.";
     }
 }

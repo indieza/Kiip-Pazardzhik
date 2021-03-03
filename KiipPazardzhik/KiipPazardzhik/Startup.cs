@@ -17,6 +17,7 @@ using KiipPazardzhik.Models.Users;
 using KiipPazardzhik.Services.Home;
 using KiipPazardzhik.Areas.Administration.Services.Dashboard;
 using KiipPazardzhik.Areas.Administration.Services.AddPerson;
+using KiipPazardzhik.Areas.Administration.Services.DeletePerson;
 
 namespace KiipPazardzhik
 {
@@ -80,6 +81,7 @@ namespace KiipPazardzhik
             // Register Administration Services
             services.AddTransient<IDashboardService, DashboardService>();
             services.AddTransient<IAddPersonService, AddPersonService>();
+            services.AddTransient<IDeletePersonService, DeletePersonService>();
 
             services.AddControllersWithViews();
             services.AddRazorPages();
