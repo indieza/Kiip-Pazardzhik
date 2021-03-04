@@ -1,0 +1,38 @@
+﻿@{
+    ViewData["Title"] = "Изтрий новина";
+}
+
+@model DeleteNewsBaseModel
+
+<h1 class="mt-4">@ViewData["Title"]</h1>
+<hr />
+<partial name="_TempDataPartial" />
+
+<form method="post" enctype="multipart/form-data">
+    <div class="row">
+        <div class="form-group col-lg-12">
+            <label asp-for="@this.Model.DeleteNewsInputModel.Id"></label>
+            <select class="form-control" asp-for="@this.Model.DeleteNewsInputModel.Id">
+                <option value="" disabled selected>Избери...</option>
+                @foreach (var news in this.Model.AllNews)
+                {
+                    <option value="@news.Id">@news.Title</option>
+                }
+            </select>
+            <span asp-validation-for="@this.Model.DeleteNewsInputModel.Id" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="form-group col-lg-12">
+            <button class="btn btn-success" asp-area="Administration" asp-controller="DeleteNews" asp-action="DeleteNews">
+                Изтрий
+            </button>
+        </div>
+    </div>
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+    <script src="~/lib/tinymce/tinymce.min.js" type="text/javascript"></script>
+    <script src="~/lib/tinymce/visualizer.js" type="text/javascript"></script>
+}
