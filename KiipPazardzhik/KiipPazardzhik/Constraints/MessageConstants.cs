@@ -31,5 +31,8 @@ namespace KiipPazardzhik.Constraints
 
         public const string SuccessfullyDeleteNews =
             "Успешно изтри новина.";
+
+        public const string SuccessfullyAddDocument =
+            "Успешно добави документ.";
     }
 }

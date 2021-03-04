@@ -20,6 +20,7 @@ using KiipPazardzhik.Areas.Administration.Services.AddPerson;
 using KiipPazardzhik.Areas.Administration.Services.DeletePerson;
 using KiipPazardzhik.Areas.Administration.Services.AddNews;
 using KiipPazardzhik.Areas.Administration.Services.DeleteNews;
+using KiipPazardzhik.Areas.Administration.Services.AddDocument;
 
 namespace KiipPazardzhik
 {
@@ -86,6 +87,7 @@ namespace KiipPazardzhik
             services.AddTransient<IDeletePersonService, DeletePersonService>();
             services.AddTransient<IAddNewsService, AddNewsService>();
             services.AddTransient<IDeleteNewsService, DeleteNewsService>();
+            services.AddTransient<IAddDocumentService, AddDocumentService>();
 
             services.AddControllersWithViews();
             services.AddRazorPages();

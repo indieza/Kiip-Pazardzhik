@@ -23,6 +23,8 @@ namespace KiipPazardzhik.Data
 
         public DbSet<RegionalCollege> RegionalColleges { get; set; }
 
+        public DbSet<Document> Documents { get; set; }
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             base.OnConfiguring(optionsBuilder);

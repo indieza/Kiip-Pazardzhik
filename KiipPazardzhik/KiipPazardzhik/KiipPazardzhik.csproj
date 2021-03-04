@@ -6,6 +6,11 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Data\Migrations\20210304154131_AddDocumentsDbModel.cs" />
+    <Compile Remove="Data\Migrations\20210304154131_AddDocumentsDbModel.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Content Remove="stylecop.json" />
   </ItemGroup>
 
@@ -29,6 +34,7 @@
   <ItemGroup>
     <Folder Include="Areas\Administration\Data\" />
     <Folder Include="Areas\Administration\Models\" />
+    <Folder Include="Areas\Administration\ViewModels\AddDocument\ViewModels\" />
     <Folder Include="Areas\Administration\ViewModels\AddNews\ViewModels\" />
     <Folder Include="Areas\Administration\ViewModels\AddPerson\ViewModels\" />
     <Folder Include="ViewModels\Home\InputModels\" />

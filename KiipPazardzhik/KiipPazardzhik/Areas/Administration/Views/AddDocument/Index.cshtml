@@ -1,0 +1,46 @@
+﻿@{
+    ViewData["Title"] = "Добави документ";
+}
+
+@model AddDocumentInputModel
+
+<h2 class="mt-4 row">
+    <b>
+        @ViewData["Title"]
+    </b>
+</h2>
+<hr class="row" />
+<div class="mt-4">
+    <partial name="_TempDataPartial" />
+</div>
+
+<form method="post" enctype="multipart/form-data">
+    <div class="row">
+        <div class="col-md-12 form-group">
+            <label asp-for="@this.Model.DocumentType"></label>
+            <select class="form-control" asp-for="@this.Model.DocumentType" asp-items="Html.GetEnumSelectList<DocumentType>()">
+                <option disabled selected="selected" value="">Избери...</option>
+            </select>
+            <span class="text-danger" asp-validation-for="@this.Model.DocumentType"></span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12 form-group">
+            <label asp-for="@this.Model.File"></label>
+            <input type="file" class="form-control-file" asp-for="@this.Model.File" />
+            <span class="text-danger" asp-validation-for="@this.Model.File"></span>
+        </div>
+    </div>
+    <br />
+    <div class="row">
+        <button class="btn btn-success" asp-area="Administration" asp-controller="AddDocument" asp-action="AddDocument">
+            <i class="fas fa-check"></i> Добави
+        </button>
+    </div>
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+    <script src="~/lib/tinymce/tinymce.min.js" type="text/javascript"></script>
+    <script src="~/lib/tinymce/visualizer.js" type="text/javascript"></script>
+}
