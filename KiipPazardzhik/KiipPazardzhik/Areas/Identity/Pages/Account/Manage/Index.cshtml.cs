@@ -9,22 +9,28 @@ namespace KiipPazardzhik.Areas.Identity.Pages.Account.Manage
     using System.ComponentModel.DataAnnotations;
     using System.Linq;
     using System.Threading.Tasks;
+    using KiipPazardzhik.Data;
     using KiipPazardzhik.Models.Users;
+    using KiipPazardzhik.ViewModels.User.ViewModels;
     using Microsoft.AspNetCore.Identity;
     using Microsoft.AspNetCore.Mvc;
     using Microsoft.AspNetCore.Mvc.RazorPages;
+    using Microsoft.EntityFrameworkCore;
 
     public partial class IndexModel : PageModel
     {
         private readonly UserManager<ApplicationUser> userManager;
         private readonly SignInManager<ApplicationUser> signInManager;
+        private readonly ApplicationDbContext db;
 
         public IndexModel(
             UserManager<ApplicationUser> userManager,
-            SignInManager<ApplicationUser> signInManager)
+            SignInManager<ApplicationUser> signInManager,
+            ApplicationDbContext db)
         {
             this.userManager = userManager;
             this.signInManager = signInManager;
+            this.db = db;
         }
 
         [Display(Name = "Потребителско име")]
@@ -34,25 +40,20 @@ namespace KiipPazardzhik.Areas.Identity.Pages.Account.Manage
         public string StatusMessage { get; set; }
 
         [BindProperty]
-        public InputModel Input { get; set; }
-
-        public class InputModel
-        {
-            [Phone]
-            [Display(Name = "Телефон")]
-            public string PhoneNumber { get; set; }
-        }
+        public EditUserProfileViewModel Input { get; set; }
 
         private async Task LoadAsync(ApplicationUser user)
         {
-            var userName = await this.userManager.GetUserNameAsync(user);
-            var phoneNumber = await this.userManager.GetPhoneNumberAsync(user);
+            var currentUser = await this.db.Users.FirstOrDefaultAsync(x => x.Id == user.Id);
 
-            this.Username = userName;
+            this.Username = currentUser.UserName;
 
-            this.Input = new InputModel
+            this.Input = new EditUserProfileViewModel
             {
-                PhoneNumber = phoneNumber,
+                PhoneNumber = currentUser.PhoneNumber,
+                FirstName = currentUser.FirstName,
+                LastName = currentUser.LastName,
+                MiddleName = currentUser.MiddleName,
             };
         }
 
@@ -82,19 +83,15 @@ namespace KiipPazardzhik.Areas.Identity.Pages.Account.Manage
                 return this.Page();
             }
 
-            var phoneNumber = await this.userManager.GetPhoneNumberAsync(user);
-            if (this.Input.PhoneNumber != phoneNumber)
-            {
-                var setPhoneResult = await this.userManager.SetPhoneNumberAsync(user, this.Input.PhoneNumber);
-                if (!setPhoneResult.Succeeded)
-                {
-                    this.StatusMessage = "Unexpected error when trying to set phone number.";
-                    return this.RedirectToPage();
-                }
-            }
+            user.PhoneNumber = this.Input.PhoneNumber;
+            user.FirstName = this.Input.FirstName;
+            user.MiddleName = this.Input.MiddleName;
+            user.LastName = this.Input.LastName;
+            this.db.Users.Update(user);
+            await this.db.SaveChangesAsync();
 
             await this.signInManager.RefreshSignInAsync(user);
-            this.StatusMessage = "Your profile has been updated";
+            this.StatusMessage = "Профилът Ви беше обновен успешно.";
             return this.RedirectToPage();
         }
     }
