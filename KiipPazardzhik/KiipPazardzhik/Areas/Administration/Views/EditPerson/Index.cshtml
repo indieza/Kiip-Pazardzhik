@@ -1,0 +1,117 @@
+﻿@{
+    ViewData["Title"] = "Промени човек";
+}
+
+@model EditPersonBaseModel
+
+<h2 class="mt-4 row">
+    <b>
+        @ViewData["Title"]
+    </b>
+</h2>
+<hr class="row" />
+<div class="mt-4">
+    <partial name="_TempDataPartial" />
+</div>
+
+<form method="post" enctype="multipart/form-data">
+    <div class="row">
+        <div class="form-group col-lg-12">
+            <label asp-for="@this.Model.EditPersonInputModel.Id"></label>
+            <select class="form-control" asp-for="@this.Model.EditPersonInputModel.Id" onchange="selectedName(this)">
+                <option value="" disabled selected>Select section...</option>
+                @foreach (var person in Model.AllPeople)
+                {
+                    <option value="@person.Id">@person.DisplayName</option>
+                }
+            </select>
+            <span asp-validation-for="@this.Model.EditPersonInputModel.Id" class="text-danger"></span>
+        </div>
+    </div>
+    <hr />
+    <div id="editPersonInputForm" style="display: none">
+        <div class="row">
+            <div class="form-group col-lg-12">
+                <label asp-for="@this.Model.EditPersonInputModel.RegisterNumber"></label>
+                <input id="registerNumber" class="form-control" type="text" asp-for="@this.Model.EditPersonInputModel.RegisterNumber" autocomplete="off" />
+                <span asp-validation-for="@this.Model.EditPersonInputModel.RegisterNumber" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group col-lg-4">
+                <label asp-for="@this.Model.EditPersonInputModel.FirstName"></label>
+                <input id="firstName" class="form-control" type="text" asp-for="@this.Model.EditPersonInputModel.FirstName" autocomplete="off" />
+                <span asp-validation-for="@this.Model.EditPersonInputModel.FirstName" class="text-danger"></span>
+            </div>
+            <div class="form-group col-lg-4">
+                <label asp-for="@this.Model.EditPersonInputModel.MiddleName"></label>
+                <input id="middleName" class="form-control" type="text" asp-for="@this.Model.EditPersonInputModel.MiddleName" autocomplete="off" />
+                <span asp-validation-for="@this.Model.EditPersonInputModel.MiddleName" class="text-danger"></span>
+            </div>
+            <div class="form-group col-lg-4">
+                <label asp-for="@this.Model.EditPersonInputModel.LastName"></label>
+                <input id="lastName" class="form-control" type="text" asp-for="@this.Model.EditPersonInputModel.LastName" autocomplete="off" />
+                <span asp-validation-for="@this.Model.EditPersonInputModel.LastName" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group col-lg-6">
+                <label asp-for="@this.Model.EditPersonInputModel.Section"></label>
+                <input id="section" class="form-control" type="text" asp-for="@this.Model.EditPersonInputModel.Section" autocomplete="off" />
+                <span asp-validation-for="@Model.EditPersonInputModel.Section" class="text-danger"></span>
+            </div>
+            <div class="form-group col-lg-6">
+                <label asp-for="@this.Model.EditPersonInputModel.LegalCapacity"></label>
+                <input id="legalCapacity" class="form-control" type="text" asp-for="@this.Model.EditPersonInputModel.LegalCapacity" autocomplete="off" />
+                <span asp-validation-for="@Model.EditPersonInputModel.LegalCapacity" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group col-lg-6">
+                <label asp-for="@this.Model.EditPersonInputModel.Phone"></label>
+                <input id="phone" class="form-control" type="text" asp-for="@this.Model.EditPersonInputModel.Phone" autocomplete="off" />
+                <span asp-validation-for="@Model.EditPersonInputModel.Phone" class="text-danger"></span>
+            </div>
+            <div class="form-group col-lg-6">
+                <label asp-for="@this.Model.EditPersonInputModel.Email"></label>
+                <input id="email" class="form-control" type="text" asp-for="@this.Model.EditPersonInputModel.Email" autocomplete="off" />
+                <span asp-validation-for="@Model.EditPersonInputModel.Email" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group col-lg-6">
+                <label asp-for="@this.Model.EditPersonInputModel.IsActive"></label>
+                <select id="isActive" class="form-control" asp-for="@this.Model.EditPersonInputModel.IsActive">
+                    <option value="" disabled selected>Избери...</option>
+                    <option value="@true">Да</option>
+                    <option value="@false">Не</option>
+                </select>
+                <span asp-validation-for="@this.Model.EditPersonInputModel.IsActive" class="text-danger"></span>
+            </div>
+            <div class="form-group col-lg-6">
+                <label asp-for="@this.Model.EditPersonInputModel.IsFrozen"></label>
+                <select id="isFrozen" class="form-control" asp-for="@this.Model.EditPersonInputModel.IsFrozen">
+                    <option value="" disabled selected>Избери...</option>
+                    <option value="@true">Да</option>
+                    <option value="@false">Не</option>
+                </select>
+                <span asp-validation-for="@this.Model.EditPersonInputModel.IsFrozen" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group col-lg-12">
+                <button class="btn btn-info" asp-area="Administration" asp-controller="EditPerson" asp-action="EditPerson">
+                    Промени
+                </button>
+            </div>
+        </div>
+    </div>
+</form>
+<input type="hidden" />
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+    <script src="~/lib/tinymce/tinymce.min.js" type="text/javascript"></script>
+    <script src="~/lib/tinymce/visualizer.js" type="text/javascript"></script>
+    <script src="~/administration/js/editPersonScript.js"></script>
+}
