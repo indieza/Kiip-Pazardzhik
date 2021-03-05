@@ -26,9 +26,9 @@
     </div>
     <div class="row">
         <div class="col-md-12 form-group">
-            <label asp-for="@this.Model.File"></label>
-            <input type="file" class="form-control-file" asp-for="@this.Model.File" />
-            <span class="text-danger" asp-validation-for="@this.Model.File"></span>
+            <label asp-for="@this.Model.Files"></label>
+            <input type="file" class="form-control-file" asp-for="@this.Model.Files" multiple />
+            <span class="text-danger" asp-validation-for="@this.Model.Files"></span>
         </div>
     </div>
     <br />

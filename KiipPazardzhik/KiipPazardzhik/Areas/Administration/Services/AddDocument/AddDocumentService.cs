@@ -27,20 +27,23 @@ namespace KiipPazardzhik.Areas.Administration.Services.AddDocument
 
         public async Task AddDocument(AddDocumentInputModel model)
         {
-            var document = new Document
+            foreach (var file in model.Files)
             {
-                Name = model.File.FileName,
-                DocumentType = model.DocumentType,
-            };
+                var document = new Document
+                {
+                    Name = file.FileName,
+                    DocumentType = model.DocumentType,
+                };
 
-            var fileUrl = await ApplicationCloudinary.UploadImage(
-                       this.cloudinary,
-                       model.File,
-                       $"{document.Id}-{model.File.FileName}");
+                var fileUrl = await ApplicationCloudinary.UploadImage(
+                           this.cloudinary,
+                           file,
+                           $"{document.Id}-{file.FileName}");
 
-            document.Url = fileUrl;
-            this.db.Documents.Add(document);
-            await this.db.SaveChangesAsync();
+                document.Url = fileUrl;
+                this.db.Documents.Add(document);
+                await this.db.SaveChangesAsync();
+            }
         }
     }
 }

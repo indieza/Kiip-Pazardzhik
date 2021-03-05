@@ -19,7 +19,7 @@ namespace KiipPazardzhik.Areas.Administration.ViewModels.AddDocument.InputModels
         public DocumentType DocumentType { get; set; }
 
         [Required(ErrorMessage = "Полето е задължително")]
-        [Display(Name = "Документ")]
-        public IFormFile File { get; set; }
+        [Display(Name = "Документи")]
+        public ICollection<IFormFile> Files { get; set; } = new HashSet<IFormFile>();
     }
 }

@@ -32,7 +32,7 @@ namespace KiipPazardzhik.Areas.Administration.Controllers
 
         public async Task<IActionResult> AddDocument(AddDocumentInputModel model)
         {
-            if (this.ModelState.IsValid)
+            if (this.ModelState.IsValid && model.Files.Count > 0)
             {
                 await this.addDocumentService.AddDocument(model);
                 this.TempData["Success"] = MessageConstants.SuccessfullyAddDocument;
