@@ -1,0 +1,73 @@
+﻿@{
+    ViewData["Title"] = "Промени новина";
+}
+
+@model EditNewsBaseModel
+
+<h2 class="mt-4 row">
+    <b>
+        @ViewData["Title"]
+    </b>
+</h2>
+<hr class="row" />
+<div class="mt-4">
+    <partial name="_TempDataPartial" />
+</div>
+
+<form method="post" enctype="multipart/form-data">
+    <div class="row">
+        <div class="form-group col-lg-12">
+            <label asp-for="@this.Model.EditNewsInputModel.Id"></label>
+            <select class="form-control" asp-for="@this.Model.EditNewsInputModel.Id" onchange="selectedName(this)">
+                <option value="" disabled selected>Избери...</option>
+                @foreach (var news in Model.AllNews)
+                {
+                    <option value="@news.Id">@news.Title</option>
+                }
+            </select>
+            <span asp-validation-for="@this.Model.EditNewsInputModel.Id" class="text-danger"></span>
+        </div>
+    </div>
+    <hr />
+    <div id="editPersonInputForm" style="display: none">
+        <div class="row">
+            <div class="col-md-12 form-group">
+                <label asp-for="@this.Model.EditNewsInputModel.Title"></label>
+                <input id="title" type="text" class="form-control" asp-for="@this.Model.EditNewsInputModel.Title" />
+                <span class="text-danger" asp-validation-for="@this.Model.EditNewsInputModel.Title"></span>
+            </div>
+        </div>
+        <br />
+        <div class="row">
+            <div class="col-md-12 form-group">
+                <label asp-for="@this.Model.EditNewsInputModel.Description"></label>
+                <textarea id="description" asp-for="@Model.EditNewsInputModel.Description" class="form-control edit-with-tinymce" style="resize: vertical" rows="30"></textarea>
+                <span asp-validation-for="@Model.EditNewsInputModel.Description" class="text-danger"></span>
+            </div>
+        </div>
+        <br />
+        <div class="row">
+            <div class="col-md-12 form-group">
+                <label asp-for="@this.Model.EditNewsInputModel.WebsiteFiles"></label>
+                <input type="file" class="form-control-file" asp-for="@this.Model.EditNewsInputModel.WebsiteFiles" multiple />
+                <span class="text-danger" asp-validation-for="@this.Model.EditNewsInputModel.WebsiteFiles"></span>
+            </div>
+        </div>
+        <br />
+        <div class="row">
+            <div class="form-group col-lg-12">
+                <button class="btn btn-info" asp-area="Administration" asp-controller="EditNews" asp-action="EditNews">
+                    Промени
+                </button>
+            </div>
+        </div>
+    </div>
+</form>
+<input type="hidden" />
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+    <script src="~/lib/tinymce/tinymce.min.js" type="text/javascript"></script>
+    <script src="~/lib/tinymce/visualizer.js" type="text/javascript"></script>
+    <script src="~/administration/js/editNewsScript.js"></script>
+}

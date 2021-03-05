@@ -19,7 +19,7 @@
         <div class="form-group col-lg-12">
             <label asp-for="@this.Model.EditPersonInputModel.Id"></label>
             <select class="form-control" asp-for="@this.Model.EditPersonInputModel.Id" onchange="selectedName(this)">
-                <option value="" disabled selected>Select section...</option>
+                <option value="" disabled selected>Избери...</option>
                 @foreach (var person in Model.AllPeople)
                 {
                     <option value="@person.Id">@person.DisplayName</option>

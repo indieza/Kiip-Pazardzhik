@@ -15,6 +15,7 @@ namespace KiipPazardzhik
     using KiipPazardzhik.Areas.Administration.Services.DeleteDocument;
     using KiipPazardzhik.Areas.Administration.Services.DeleteNews;
     using KiipPazardzhik.Areas.Administration.Services.DeletePerson;
+    using KiipPazardzhik.Areas.Administration.Services.EditNews;
     using KiipPazardzhik.Areas.Administration.Services.EditPerson;
     using KiipPazardzhik.Data;
     using KiipPazardzhik.Models.Users;
@@ -96,6 +97,7 @@ namespace KiipPazardzhik
             services.AddTransient<IAddDocumentService, AddDocumentService>();
             services.AddTransient<IEditPersonService, EditPersonService>();
             services.AddTransient<IDeleteDocumentService, DeleteDocumentService>();
+            services.AddTransient<IEditNewsService, EditNewsService>();
 
             services.AddControllersWithViews();
             services.AddRazorPages();

@@ -40,5 +40,8 @@ namespace KiipPazardzhik.Constraints
 
         public const string SuccessfullyDeleteDocument =
             "Успешно изтри документ.";
+
+        public const string SuccessfullyEditNews =
+            "Успешно промени новина.";
     }
 }
