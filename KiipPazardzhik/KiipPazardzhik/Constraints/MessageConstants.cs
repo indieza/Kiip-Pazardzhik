@@ -37,5 +37,8 @@ namespace KiipPazardzhik.Constraints
 
         public const string SuccessfullyEditPerson =
             "Успешно промени човек.";
+
+        public const string SuccessfullyDeleteDocument =
+            "Успешно изтри документ.";
     }
 }

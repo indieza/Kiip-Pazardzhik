@@ -1,0 +1,38 @@
+﻿@{
+    ViewData["Title"] = "Изтрий документ";
+}
+
+@model DeleteDocumentBaseModel
+
+<h1 class="mt-4">@ViewData["Title"]</h1>
+<hr />
+<partial name="_TempDataPartial" />
+
+<form method="post" enctype="multipart/form-data">
+    <div class="row">
+        <div class="form-group col-lg-12">
+            <label asp-for="@this.Model.DeleteDocumentInputModel.Id"></label>
+            <select class="form-control" asp-for="@this.Model.DeleteDocumentInputModel.Id">
+                <option value="" disabled selected>Избери...</option>
+                @foreach (var document in this.Model.AllDocuments)
+                {
+                    <option value="@document.Id">@document.FileName</option>
+                }
+            </select>
+            <span asp-validation-for="@this.Model.DeleteDocumentInputModel.Id" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="form-group col-lg-12">
+            <button class="btn btn-success" asp-area="Administration" asp-controller="DeleteDocument" asp-action="DeleteDocument">
+                Изтрий
+            </button>
+        </div>
+    </div>
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+    <script src="~/lib/tinymce/tinymce.min.js" type="text/javascript"></script>
+    <script src="~/lib/tinymce/visualizer.js" type="text/javascript"></script>
+}
