@@ -28,7 +28,7 @@ namespace KiipPazardzhik.Areas.Administration.ViewModels.EditPerson.InputModels
 
         [Required(ErrorMessage = "Полето е задължително!")]
         [MaxLength(20)]
-        [Display(Name = "Фамелия")]
+        [Display(Name = "Фамилия")]
         public string LastName { get; set; }
 
         [Required(ErrorMessage = "Полето е задължително!")]

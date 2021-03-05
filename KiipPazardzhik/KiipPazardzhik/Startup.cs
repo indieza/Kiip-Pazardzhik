@@ -1,30 +1,34 @@
-using System;
-using System.Collections.Generic;
-using System.Globalization;
-using CloudinaryDotNet;
-using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Identity.UI.Services;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Options;
-using KiipPazardzhik.Services.Cloud;
-using KiipPazardzhik.Data;
-using KiipPazardzhik.Models.Users;
-using KiipPazardzhik.Services.Home;
-using KiipPazardzhik.Areas.Administration.Services.Dashboard;
-using KiipPazardzhik.Areas.Administration.Services.AddPerson;
-using KiipPazardzhik.Areas.Administration.Services.DeletePerson;
-using KiipPazardzhik.Areas.Administration.Services.AddNews;
-using KiipPazardzhik.Areas.Administration.Services.DeleteNews;
-using KiipPazardzhik.Areas.Administration.Services.AddDocument;
-using KiipPazardzhik.Areas.Administration.Services.EditPerson;
+// <copyright file="Startup.cs" company="Kiip Pazardzhik">
+// Copyright (c) Kiip Pazardzhik. All rights reserved.
+// </copyright>
 
 namespace KiipPazardzhik
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Globalization;
+    using CloudinaryDotNet;
+    using KiipPazardzhik.Areas.Administration.Services.AddDocument;
+    using KiipPazardzhik.Areas.Administration.Services.AddNews;
+    using KiipPazardzhik.Areas.Administration.Services.AddPerson;
+    using KiipPazardzhik.Areas.Administration.Services.Dashboard;
+    using KiipPazardzhik.Areas.Administration.Services.DeleteNews;
+    using KiipPazardzhik.Areas.Administration.Services.DeletePerson;
+    using KiipPazardzhik.Areas.Administration.Services.EditPerson;
+    using KiipPazardzhik.Data;
+    using KiipPazardzhik.Models.Users;
+    using KiipPazardzhik.Services.Cloud;
+    using KiipPazardzhik.Services.Home;
+    using Microsoft.AspNetCore.Builder;
+    using Microsoft.AspNetCore.Hosting;
+    using Microsoft.AspNetCore.Identity;
+    using Microsoft.AspNetCore.Identity.UI.Services;
+    using Microsoft.EntityFrameworkCore;
+    using Microsoft.Extensions.Configuration;
+    using Microsoft.Extensions.DependencyInjection;
+    using Microsoft.Extensions.Hosting;
+    using Microsoft.Extensions.Options;
+
     public class Startup
     {
         public Startup(IConfiguration configuration)
