@@ -139,7 +139,22 @@
                             <td>@user.Email</td>
                             <td>@user.PhoneNumber</td>
                             <td>
-                                <span style="color: @(user.EmailConfirmed ? "green" : "red")">@user.EmailConfirmed</span>
+                                @if (user.EmailConfirmed)
+                                {
+                                    <span style="color: darkgreen; font-weight: bold; text-transform: capitalize">
+                                        @user.EmailConfirmed
+                                    </span>
+                                }
+                                else
+                                {
+                                    <a asp-area="Administration"
+                                       asp-controller="Dashboard"
+                                       asp-action="ApproveUser"
+                                       asp-route-id="@user.Id"
+                                       style="color: red; font-weight: bold; text-transform: capitalize">
+                                        @user.EmailConfirmed
+                                    </a>
+                                }
                             </td>
                         </tr>
                     }

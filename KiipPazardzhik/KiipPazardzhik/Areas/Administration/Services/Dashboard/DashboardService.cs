@@ -8,9 +8,11 @@ namespace KiipPazardzhik.Areas.Administration.Services.Dashboard
     using System.Collections.Generic;
     using System.Linq;
     using System.Threading.Tasks;
+
     using KiipPazardzhik.Constraints;
     using KiipPazardzhik.Data;
     using KiipPazardzhik.Models.Users;
+
     using Microsoft.AspNetCore.Identity;
     using Microsoft.EntityFrameworkCore;
 
@@ -34,6 +36,14 @@ namespace KiipPazardzhik.Areas.Administration.Services.Dashboard
         {
             var user = await this.db.Users.FirstOrDefaultAsync(x => x.UserName == username);
             await this.userManager.AddToRoleAsync(user, GlobalConstants.AdministratorRole);
+        }
+
+        public async Task ApproveUser(string id)
+        {
+            var user = await this.db.Users.FirstOrDefaultAsync(x => x.Id == id);
+            user.EmailConfirmed = true;
+            this.db.Users.Update(user);
+            await this.db.SaveChangesAsync();
         }
 
         public async Task<int> GetAllAdminsCount()

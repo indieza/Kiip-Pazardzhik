@@ -23,5 +23,6 @@ namespace KiipPazardzhik.Areas.Administration.Services.Dashboard
         Task<ICollection<string>> GetAllNotAdminsNames();
         Task RemoveAdministrator(string username);
         Task AddAdministrator(string username);
+        Task ApproveUser(string id);
     }
 }

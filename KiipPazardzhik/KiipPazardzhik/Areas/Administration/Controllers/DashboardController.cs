@@ -8,10 +8,12 @@ namespace KiipPazardzhik.Areas.Administration.Controllers
     using System.Collections.Generic;
     using System.Linq;
     using System.Threading.Tasks;
+
     using KiipPazardzhik.Areas.Administration.Services.Dashboard;
     using KiipPazardzhik.Areas.Administration.ViewModels.Dashboard.InputModels;
     using KiipPazardzhik.Areas.Administration.ViewModels.Dashboard.ViewModels;
     using KiipPazardzhik.Constraints;
+
     using Microsoft.AspNetCore.Authorization;
     using Microsoft.AspNetCore.Mvc;
 
@@ -82,6 +84,22 @@ namespace KiipPazardzhik.Areas.Administration.Controllers
                 this.TempData["Error"] = MessageConstants.InvalidInputModel;
                 return this.RedirectToAction("Index", "Dashboard", model);
             }
+        }
+
+        [Route("/Administration/Dashboard/ApproveUser/{id?}")]
+        public async Task<IActionResult> ApproveUser(string id)
+        {
+            if (id != string.Empty)
+            {
+                await this.dashboardService.ApproveUser(id);
+                this.TempData["Success"] = MessageConstants.SuccessfullyApprovedEser;
+            }
+            else
+            {
+                this.TempData["Error"] = MessageConstants.InvalidInputModel;
+            }
+
+            return this.RedirectToAction("Index", "Dashboard");
         }
     }
 }
