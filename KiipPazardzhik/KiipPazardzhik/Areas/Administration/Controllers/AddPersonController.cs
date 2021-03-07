@@ -4,13 +4,13 @@
 
 namespace KiipPazardzhik.Areas.Administration.Controllers
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
     using System.Threading.Tasks;
+
     using KiipPazardzhik.Areas.Administration.Services.AddPerson;
     using KiipPazardzhik.Areas.Administration.ViewModels.AddPerson.InputModels;
+    using KiipPazardzhik.Areas.Administration.ViewModels.AddPerson.ViewModels;
     using KiipPazardzhik.Constraints;
+
     using Microsoft.AspNetCore.Authorization;
     using Microsoft.AspNetCore.Mvc;
 
@@ -27,15 +27,21 @@ namespace KiipPazardzhik.Areas.Administration.Controllers
 
         public IActionResult Index()
         {
-            return this.View();
+            var model = new AddPersonBaseModel
+            {
+                AddPersonInputModel = new AddPersonInputModel(),
+                AllSections = this.addPersonService.GetAllSections(),
+            };
+
+            return this.View(model);
         }
 
         [HttpPost]
-        public async Task<IActionResult> AddPerson(AddPersonInputModel model)
+        public async Task<IActionResult> AddPerson(AddPersonBaseModel model)
         {
             if (this.ModelState.IsValid)
             {
-                await this.addPersonService.AddPerson(model);
+                await this.addPersonService.AddPerson(model.AddPersonInputModel);
                 this.TempData["Success"] = MessageConstants.SuccessfullyAddPerson;
             }
             else

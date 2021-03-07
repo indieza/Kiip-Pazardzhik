@@ -4,13 +4,14 @@
 
 namespace KiipPazardzhik.Areas.Administration.Services.EditPerson
 {
-    using System;
     using System.Collections.Generic;
     using System.Linq;
     using System.Threading.Tasks;
+
     using KiipPazardzhik.Areas.Administration.ViewModels.EditPerson.InputModels;
     using KiipPazardzhik.Areas.Administration.ViewModels.EditPerson.ViewModels;
     using KiipPazardzhik.Data;
+
     using Microsoft.EntityFrameworkCore;
 
     public class EditPersonService : IEditPersonService
@@ -55,6 +56,11 @@ namespace KiipPazardzhik.Areas.Administration.Services.EditPerson
             }
 
             return result;
+        }
+
+        public ICollection<string> GetAllSections()
+        {
+            return this.db.People.Select(x => x.Section).Distinct().ToList();
         }
 
         public async Task<GetPersonDataViewModel> GetPersonById(string personId)

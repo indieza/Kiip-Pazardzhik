@@ -4,10 +4,9 @@
 
 namespace KiipPazardzhik.Areas.Administration.Services.Dashboard
 {
-    using System;
     using System.Collections.Generic;
-    using System.Linq;
     using System.Threading.Tasks;
+
     using KiipPazardzhik.Models.Users;
 
     public interface IDashboardService
@@ -21,8 +20,11 @@ namespace KiipPazardzhik.Areas.Administration.Services.Dashboard
         Task<ICollection<string>> GetAllAdminsNames();
 
         Task<ICollection<string>> GetAllNotAdminsNames();
+
         Task RemoveAdministrator(string username);
+
         Task AddAdministrator(string username);
+
         Task ApproveUser(string id);
     }
 }

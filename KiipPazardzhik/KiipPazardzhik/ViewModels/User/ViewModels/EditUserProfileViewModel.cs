@@ -1,14 +1,10 @@
-﻿// <copyright file="EditUserProfileInputModel.cs" company="Kiip Pazardzhik">
+﻿// <copyright file="EditUserProfileViewModel.cs" company="Kiip Pazardzhik">
 // Copyright (c) Kiip Pazardzhik. All rights reserved.
 // </copyright>
 
 namespace KiipPazardzhik.ViewModels.User.ViewModels
 {
-    using System;
-    using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
-    using System.Linq;
-    using System.Threading.Tasks;
 
     public class EditUserProfileViewModel
     {

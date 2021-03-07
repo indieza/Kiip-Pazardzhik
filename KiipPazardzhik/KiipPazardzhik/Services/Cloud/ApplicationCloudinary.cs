@@ -1,14 +1,18 @@
-﻿using CloudinaryDotNet;
-using CloudinaryDotNet.Actions;
-using Microsoft.AspNetCore.Http;
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Threading.Tasks;
+﻿// <copyright file="ApplicationCloudinary.cs" company="Kiip Pazardzhik">
+// Copyright (c) Kiip Pazardzhik. All rights reserved.
+// </copyright>
 
 namespace KiipPazardzhik.Services.Cloud
 {
+    using System.Collections.Generic;
+    using System.IO;
+    using System.Threading.Tasks;
+
+    using CloudinaryDotNet;
+    using CloudinaryDotNet.Actions;
+
+    using Microsoft.AspNetCore.Http;
+
     public class ApplicationCloudinary
     {
         public static async Task<string> UploadImage(Cloudinary cloudinary, IFormFile image, string name)

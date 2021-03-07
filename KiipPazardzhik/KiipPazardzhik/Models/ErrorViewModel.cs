@@ -1,5 +1,3 @@
-using System;
-
 namespace KiipPazardzhik.Models
 {
     public class ErrorViewModel

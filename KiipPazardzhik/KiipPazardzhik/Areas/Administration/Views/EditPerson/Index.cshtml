@@ -57,7 +57,13 @@
         <div class="row">
             <div class="form-group col-lg-6">
                 <label asp-for="@this.Model.EditPersonInputModel.Section"></label>
-                <input id="section" class="form-control" type="text" asp-for="@this.Model.EditPersonInputModel.Section" autocomplete="off" />
+                <input list="sections" id="section" class="form-control" type="text" asp-for="@this.Model.EditPersonInputModel.Section" autocomplete="off" />
+                <datalist id="sections">
+                    @foreach (var currentSection in this.Model.AllSections)
+                    {
+                        <option>@currentSection</option>
+                    }
+                </datalist>
                 <span asp-validation-for="@Model.EditPersonInputModel.Section" class="text-danger"></span>
             </div>
             <div class="form-group col-lg-6">

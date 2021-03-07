@@ -1,14 +1,12 @@
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+// <copyright file="Program.cs" company="Kiip Pazardzhik">
+// Copyright (c) Kiip Pazardzhik. All rights reserved.
+// </copyright>
 
 namespace KiipPazardzhik
 {
+    using Microsoft.AspNetCore.Hosting;
+    using Microsoft.Extensions.Hosting;
+
     public class Program
     {
         public static void Main(string[] args)

@@ -4,15 +4,17 @@
 
 namespace KiipPazardzhik.Areas.Administration.Services.DeleteNews
 {
-    using System;
     using System.Collections.Generic;
     using System.Linq;
     using System.Threading.Tasks;
+
     using CloudinaryDotNet;
+
     using KiipPazardzhik.Areas.Administration.ViewModels.DeleteNews.InputModels;
     using KiipPazardzhik.Areas.Administration.ViewModels.DeleteNews.VeiwModels;
     using KiipPazardzhik.Data;
     using KiipPazardzhik.Services.Cloud;
+
     using Microsoft.EntityFrameworkCore;
 
     public class DeleteNewsService : IDeleteNewsService

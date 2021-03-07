@@ -4,14 +4,13 @@
 
 namespace KiipPazardzhik.Areas.Administration.Controllers
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
     using System.Threading.Tasks;
+
     using KiipPazardzhik.Areas.Administration.Services.EditPerson;
     using KiipPazardzhik.Areas.Administration.ViewModels.EditPerson.InputModels;
     using KiipPazardzhik.Areas.Administration.ViewModels.EditPerson.ViewModels;
     using KiipPazardzhik.Constraints;
+
     using Microsoft.AspNetCore.Authorization;
     using Microsoft.AspNetCore.Mvc;
 
@@ -32,6 +31,7 @@ namespace KiipPazardzhik.Areas.Administration.Controllers
             {
                 EditPersonInputModel = new EditPersonInputModel(),
                 AllPeople = this.editPersonService.GetAllPeople(),
+                AllSections = this.editPersonService.GetAllSections(),
             };
 
             return this.View(model);

@@ -5,9 +5,9 @@
 namespace KiipPazardzhik
 {
     using System;
-    using System.Collections.Generic;
-    using System.Globalization;
+
     using CloudinaryDotNet;
+
     using KiipPazardzhik.Areas.Administration.Services.AddDocument;
     using KiipPazardzhik.Areas.Administration.Services.AddNews;
     using KiipPazardzhik.Areas.Administration.Services.AddPerson;
@@ -21,6 +21,7 @@ namespace KiipPazardzhik
     using KiipPazardzhik.Models.Users;
     using KiipPazardzhik.Services.Cloud;
     using KiipPazardzhik.Services.Home;
+
     using Microsoft.AspNetCore.Builder;
     using Microsoft.AspNetCore.Hosting;
     using Microsoft.AspNetCore.Identity;
@@ -29,7 +30,6 @@ namespace KiipPazardzhik
     using Microsoft.Extensions.Configuration;
     using Microsoft.Extensions.DependencyInjection;
     using Microsoft.Extensions.Hosting;
-    using Microsoft.Extensions.Options;
 
     public class Startup
     {

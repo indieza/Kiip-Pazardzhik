@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
-namespace KiipPazardzhik.Areas.Administration.ViewModels.EditPerson.ViewModels
+﻿namespace KiipPazardzhik.Areas.Administration.ViewModels.EditPerson.ViewModels
 {
     public class GetPersonDataViewModel
     {

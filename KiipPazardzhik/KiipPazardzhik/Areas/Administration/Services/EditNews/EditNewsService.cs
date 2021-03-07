@@ -4,17 +4,19 @@
 
 namespace KiipPazardzhik.Areas.Administration.Services.EditNews
 {
-    using System;
     using System.Collections.Generic;
     using System.Linq;
     using System.Text.RegularExpressions;
     using System.Threading.Tasks;
+
     using CloudinaryDotNet;
+
     using KiipPazardzhik.Areas.Administration.ViewModels.EditNews.InputModels;
     using KiipPazardzhik.Areas.Administration.ViewModels.EditNews.ViewModels;
     using KiipPazardzhik.Data;
     using KiipPazardzhik.Models;
     using KiipPazardzhik.Services.Cloud;
+
     using Microsoft.EntityFrameworkCore;
 
     public class EditNewsService : IEditNewsService

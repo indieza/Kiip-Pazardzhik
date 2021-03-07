@@ -4,10 +4,8 @@
 
 namespace KiipPazardzhik.Areas.Administration.ViewModels.DeleteDocument.ViewModels
 {
-    using System;
     using System.Collections.Generic;
-    using System.Linq;
-    using System.Threading.Tasks;
+
     using KiipPazardzhik.Areas.Administration.ViewModels.DeleteDocument.InputModels;
 
     public class DeleteDocumentBaseModel

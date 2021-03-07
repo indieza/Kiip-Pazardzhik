@@ -4,11 +4,9 @@
 
 namespace KiipPazardzhik.Areas.Administration.Services.AddNews
 {
-    using KiipPazardzhik.Areas.Administration.ViewModels.AddNews.InputModels;
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
     using System.Threading.Tasks;
+
+    using KiipPazardzhik.Areas.Administration.ViewModels.AddNews.InputModels;
 
     public interface IAddNewsService
     {

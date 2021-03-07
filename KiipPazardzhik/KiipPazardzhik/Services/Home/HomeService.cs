@@ -4,13 +4,12 @@
 
 namespace KiipPazardzhik.Services.Home
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
     using System.Threading.Tasks;
+
     using KiipPazardzhik.Constraints;
     using KiipPazardzhik.Data;
     using KiipPazardzhik.Models.Users;
+
     using Microsoft.AspNetCore.Identity;
     using Microsoft.EntityFrameworkCore;
 

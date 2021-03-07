@@ -4,10 +4,6 @@
 
 namespace KiipPazardzhik.Areas.Administration.ViewModels.Dashboard.ViewModels
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Threading.Tasks;
     using KiipPazardzhik.Areas.Administration.ViewModels.Dashboard.InputModels;
 
     public class DashboardBaseModel

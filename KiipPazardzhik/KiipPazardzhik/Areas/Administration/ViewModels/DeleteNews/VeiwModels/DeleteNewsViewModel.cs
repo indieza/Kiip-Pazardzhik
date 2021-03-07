@@ -4,11 +4,6 @@
 
 namespace KiipPazardzhik.Areas.Administration.ViewModels.DeleteNews.VeiwModels
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Threading.Tasks;
-
     public class DeleteNewsViewModel
     {
         public string Id { get; set; }

@@ -4,10 +4,9 @@
 
 namespace KiipPazardzhik.Areas.Administration.Services.EditNews
 {
-    using System;
     using System.Collections.Generic;
-    using System.Linq;
     using System.Threading.Tasks;
+
     using KiipPazardzhik.Areas.Administration.ViewModels.EditNews.InputModels;
     using KiipPazardzhik.Areas.Administration.ViewModels.EditNews.ViewModels;
 

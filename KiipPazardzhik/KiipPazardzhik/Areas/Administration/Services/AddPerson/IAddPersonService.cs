@@ -4,14 +4,15 @@
 
 namespace KiipPazardzhik.Areas.Administration.Services.AddPerson
 {
-    using KiipPazardzhik.Areas.Administration.ViewModels.AddPerson.InputModels;
-    using System;
     using System.Collections.Generic;
-    using System.Linq;
     using System.Threading.Tasks;
+
+    using KiipPazardzhik.Areas.Administration.ViewModels.AddPerson.InputModels;
 
     public interface IAddPersonService
     {
         Task AddPerson(AddPersonInputModel model);
+
+        ICollection<string> GetAllSections();
     }
 }

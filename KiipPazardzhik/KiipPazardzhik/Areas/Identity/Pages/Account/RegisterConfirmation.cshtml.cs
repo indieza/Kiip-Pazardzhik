@@ -1,12 +1,14 @@
-﻿using Microsoft.AspNetCore.Authorization;
-using System.Text;
+﻿using System.Text;
 using System.Threading.Tasks;
+
+using KiipPazardzhik.Models.Users;
+
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.WebUtilities;
-using KiipPazardzhik.Models.Users;
 
 namespace KiipPazardzhik.Areas.Identity.Pages.Account
 {

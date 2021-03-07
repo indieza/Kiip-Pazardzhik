@@ -4,14 +4,13 @@
 
 namespace KiipPazardzhik.Areas.Administration.Controllers
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
     using System.Threading.Tasks;
+
     using KiipPazardzhik.Areas.Administration.Services.DeleteNews;
     using KiipPazardzhik.Areas.Administration.ViewModels.DeleteNews.InputModels;
     using KiipPazardzhik.Areas.Administration.ViewModels.DeleteNews.VeiwModels;
     using KiipPazardzhik.Constraints;
+
     using Microsoft.AspNetCore.Authorization;
     using Microsoft.AspNetCore.Mvc;
 

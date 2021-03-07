@@ -4,14 +4,13 @@
 
 namespace KiipPazardzhik.Areas.Administration.Controllers
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
     using System.Threading.Tasks;
+
     using KiipPazardzhik.Areas.Administration.Services.DeletePerson;
     using KiipPazardzhik.Areas.Administration.ViewModels.DeletePerson.InputModels;
     using KiipPazardzhik.Areas.Administration.ViewModels.DeletePerson.ViewModels;
     using KiipPazardzhik.Constraints;
+
     using Microsoft.AspNetCore.Authorization;
     using Microsoft.AspNetCore.Mvc;
 

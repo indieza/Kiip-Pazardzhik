@@ -4,17 +4,16 @@
 
 namespace KiipPazardzhik.Services.Home
 {
-    using KiipPazardzhik.Models.Users;
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
     using System.Threading.Tasks;
+
+    using KiipPazardzhik.Models.Users;
 
     public interface IHomeService
     {
         Task SubmitAllRoles();
 
         Task<bool> HasAdministrator();
+
         Task MakeYourselfAdmin(ApplicationUser currentUser);
     }
 }

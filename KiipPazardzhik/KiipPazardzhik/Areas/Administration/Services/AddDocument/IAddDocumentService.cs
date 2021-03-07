@@ -4,11 +4,9 @@
 
 namespace KiipPazardzhik.Areas.Administration.Services.AddDocument
 {
-    using KiipPazardzhik.Areas.Administration.ViewModels.AddDocument.InputModels;
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
     using System.Threading.Tasks;
+
+    using KiipPazardzhik.Areas.Administration.ViewModels.AddDocument.InputModels;
 
     public interface IAddDocumentService
     {

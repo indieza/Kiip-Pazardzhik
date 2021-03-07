@@ -2,7 +2,7 @@
     ViewData["Title"] = "Добави човек";
 }
 
-@model AddPersonInputModel
+@model AddPersonBaseModel
 
 <h1 class="mt-4">Добави човек</h1>
 <hr />
@@ -11,70 +11,76 @@
 <form method="post" enctype="multipart/form-data">
     <div class="row">
         <div class="form-group col-lg-12">
-            <label asp-for="@this.Model.RegisterNumber"></label>
-            <input class="form-control" type="text" asp-for="@this.Model.RegisterNumber" autocomplete="off" />
-            <span asp-validation-for="@this.Model.RegisterNumber" class="text-danger"></span>
+            <label asp-for="@this.Model.AddPersonInputModel.RegisterNumber"></label>
+            <input class="form-control" type="text" asp-for="@this.Model.AddPersonInputModel.RegisterNumber" autocomplete="off" />
+            <span asp-validation-for="@this.Model.AddPersonInputModel.RegisterNumber" class="text-danger"></span>
         </div>
     </div>
     <div class="row">
         <div class="form-group col-lg-4">
-            <label asp-for="@this.Model.FirstName"></label>
-            <input class="form-control" type="text" asp-for="@this.Model.FirstName" autocomplete="off" />
-            <span asp-validation-for="@this.Model.FirstName" class="text-danger"></span>
+            <label asp-for="@this.Model.AddPersonInputModel.FirstName"></label>
+            <input class="form-control" type="text" asp-for="@this.Model.AddPersonInputModel.FirstName" autocomplete="off" />
+            <span asp-validation-for="@this.Model.AddPersonInputModel.FirstName" class="text-danger"></span>
         </div>
         <div class="form-group col-lg-4">
-            <label asp-for="@this.Model.MiddleName"></label>
-            <input class="form-control" type="text" asp-for="@this.Model.MiddleName" autocomplete="off" />
-            <span asp-validation-for="@this.Model.MiddleName" class="text-danger"></span>
+            <label asp-for="@this.Model.AddPersonInputModel.MiddleName"></label>
+            <input class="form-control" type="text" asp-for="@this.Model.AddPersonInputModel.MiddleName" autocomplete="off" />
+            <span asp-validation-for="@this.Model.AddPersonInputModel.MiddleName" class="text-danger"></span>
         </div>
         <div class="form-group col-lg-4">
-            <label asp-for="@this.Model.LastName"></label>
-            <input class="form-control" type="text" asp-for="@this.Model.LastName" autocomplete="off" />
-            <span asp-validation-for="@this.Model.LastName" class="text-danger"></span>
+            <label asp-for="@this.Model.AddPersonInputModel.LastName"></label>
+            <input class="form-control" type="text" asp-for="@this.Model.AddPersonInputModel.LastName" autocomplete="off" />
+            <span asp-validation-for="@this.Model.AddPersonInputModel.LastName" class="text-danger"></span>
         </div>
     </div>
     <div class="row">
         <div class="form-group col-lg-6">
-            <label asp-for="@this.Model.Section"></label>
-            <input class="form-control" type="text" asp-for="@this.Model.Section" autocomplete="off" />
-            <span asp-validation-for="@Model.Section" class="text-danger"></span>
+            <label asp-for="@this.Model.AddPersonInputModel.Section"></label>
+            <input list="sections" class="form-control" type="text" asp-for="@this.Model.AddPersonInputModel.Section" autocomplete="off" />
+            <datalist id="sections">
+                @foreach (var currentSection in this.Model.AllSections)
+                {
+                    <option>@currentSection</option>
+                }
+            </datalist>
+            <span asp-validation-for="@Model.AddPersonInputModel.Section" class="text-danger"></span>
         </div>
         <div class="form-group col-lg-6">
-            <label asp-for="@this.Model.LegalCapacity"></label>
-            <input class="form-control" type="text" asp-for="@this.Model.LegalCapacity" autocomplete="off" />
-            <span asp-validation-for="@Model.LegalCapacity" class="text-danger"></span>
-        </div>
-    </div>
-    <div class="row">
-        <div class="form-group col-lg-6">
-            <label asp-for="@this.Model.Phone"></label>
-            <input class="form-control" type="text" asp-for="@this.Model.Phone" autocomplete="off" />
-            <span asp-validation-for="@Model.Phone" class="text-danger"></span>
-        </div>
-        <div class="form-group col-lg-6">
-            <label asp-for="@this.Model.Email"></label>
-            <input class="form-control" type="text" asp-for="@this.Model.Email" autocomplete="off" />
-            <span asp-validation-for="@Model.Email" class="text-danger"></span>
+            <label asp-for="@this.Model.AddPersonInputModel.LegalCapacity"></label>
+            <input class="form-control" type="text" asp-for="@this.Model.AddPersonInputModel.LegalCapacity" autocomplete="off" />
+            <span asp-validation-for="@Model.AddPersonInputModel.LegalCapacity" class="text-danger"></span>
         </div>
     </div>
     <div class="row">
         <div class="form-group col-lg-6">
-            <label asp-for="@this.Model.IsActive"></label>
-            <select class="form-control" asp-for="@this.Model.IsActive">
+            <label asp-for="@this.Model.AddPersonInputModel.Phone"></label>
+            <input class="form-control" type="text" asp-for="@this.Model.AddPersonInputModel.Phone" autocomplete="off" />
+            <span asp-validation-for="@Model.AddPersonInputModel.Phone" class="text-danger"></span>
+        </div>
+        <div class="form-group col-lg-6">
+            <label asp-for="@this.Model.AddPersonInputModel.Email"></label>
+            <input class="form-control" type="text" asp-for="@this.Model.AddPersonInputModel.Email" autocomplete="off" />
+            <span asp-validation-for="@Model.AddPersonInputModel.Email" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="form-group col-lg-6">
+            <label asp-for="@this.Model.AddPersonInputModel.IsActive"></label>
+            <select class="form-control" asp-for="@this.Model.AddPersonInputModel.IsActive">
                 <option value="" disabled selected>Избери...</option>
                 <option value="@true">Да</option>
                 <option value="@false">Не</option>
             </select>
-            <span asp-validation-for="@this.Model.IsActive" class="text-danger"></span>
+            <span asp-validation-for="@this.Model.AddPersonInputModel.IsActive" class="text-danger"></span>
         </div>
         <div class="form-group col-lg-6">
-            <label asp-for="@this.Model.IsFrozen"></label>
-            <select class="form-control" asp-for="@this.Model.IsFrozen">
+            <label asp-for="@this.Model.AddPersonInputModel.IsFrozen"></label>
+            <select class="form-control" asp-for="@this.Model.AddPersonInputModel.IsFrozen">
                 <option value="" disabled selected>Избери...</option>
                 <option value="@true">Да</option>
                 <option value="@false">Не</option>
             </select>
-            <span asp-validation-for="@this.Model.IsFrozen" class="text-danger"></span>
+            <span asp-validation-for="@this.Model.AddPersonInputModel.IsFrozen" class="text-danger"></span>
         </div>
     </div>
     <div class="row">

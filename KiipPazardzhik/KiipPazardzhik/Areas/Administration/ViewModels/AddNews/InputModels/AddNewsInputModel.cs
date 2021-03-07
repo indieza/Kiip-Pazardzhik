@@ -4,12 +4,11 @@
 
 namespace KiipPazardzhik.Areas.Administration.ViewModels.AddNews.InputModels
 {
-    using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
-    using System.Linq;
-    using System.Threading.Tasks;
+
     using Ganss.XSS;
+
     using Microsoft.AspNetCore.Http;
 
     public class AddNewsInputModel

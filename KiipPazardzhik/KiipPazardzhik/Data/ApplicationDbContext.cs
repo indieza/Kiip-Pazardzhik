@@ -1,10 +1,8 @@
 ﻿using KiipPazardzhik.Models;
 using KiipPazardzhik.Models.Users;
+
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace KiipPazardzhik.Data
 {

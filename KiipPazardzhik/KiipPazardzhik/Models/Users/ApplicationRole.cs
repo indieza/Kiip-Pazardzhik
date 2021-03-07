@@ -1,11 +1,11 @@
-﻿using Microsoft.AspNetCore.Identity;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿// <copyright file="ApplicationRole.cs" company="Kiip Pazardzhik">
+// Copyright (c) Kiip Pazardzhik. All rights reserved.
+// </copyright>
 
 namespace KiipPazardzhik.Models.Users
 {
+    using Microsoft.AspNetCore.Identity;
+
     public class ApplicationRole : IdentityRole
     {
     }

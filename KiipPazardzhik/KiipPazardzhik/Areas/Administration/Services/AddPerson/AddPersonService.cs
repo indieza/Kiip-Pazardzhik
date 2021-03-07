@@ -1,13 +1,17 @@
-﻿using KiipPazardzhik.Areas.Administration.ViewModels.AddPerson.InputModels;
-using KiipPazardzhik.Data;
-using KiipPazardzhik.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿// <copyright file="AddPersonService.cs" company="Kiip Pazardzhik">
+// Copyright (c) Kiip Pazardzhik. All rights reserved.
+// </copyright>
 
 namespace KiipPazardzhik.Areas.Administration.Services.AddPerson
 {
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Threading.Tasks;
+
+    using KiipPazardzhik.Areas.Administration.ViewModels.AddPerson.InputModels;
+    using KiipPazardzhik.Data;
+    using KiipPazardzhik.Models;
+
     public class AddPersonService : IAddPersonService
     {
         private readonly ApplicationDbContext db;
@@ -34,6 +38,11 @@ namespace KiipPazardzhik.Areas.Administration.Services.AddPerson
             });
 
             await this.db.SaveChangesAsync();
+        }
+
+        public ICollection<string> GetAllSections()
+        {
+            return this.db.People.Select(x => x.Section).Distinct().ToList();
         }
     }
 }

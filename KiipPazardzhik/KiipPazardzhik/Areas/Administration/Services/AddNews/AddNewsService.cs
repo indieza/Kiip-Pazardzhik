@@ -5,11 +5,11 @@
 namespace KiipPazardzhik.Areas.Administration.Services.AddNews
 {
     using System;
-    using System.Collections.Generic;
-    using System.Linq;
     using System.Text.RegularExpressions;
     using System.Threading.Tasks;
+
     using CloudinaryDotNet;
+
     using KiipPazardzhik.Areas.Administration.ViewModels.AddNews.InputModels;
     using KiipPazardzhik.Data;
     using KiipPazardzhik.Models;

@@ -4,10 +4,8 @@
 
 namespace KiipPazardzhik.Areas.Administration.ViewModels.EditPerson.ViewModels
 {
-    using System;
     using System.Collections.Generic;
-    using System.Linq;
-    using System.Threading.Tasks;
+
     using KiipPazardzhik.Areas.Administration.ViewModels.EditPerson.InputModels;
 
     public class EditPersonBaseModel
@@ -16,5 +14,8 @@ namespace KiipPazardzhik.Areas.Administration.ViewModels.EditPerson.ViewModels
 
         public ICollection<EditPersonViewModel> AllPeople { get; set; } =
             new HashSet<EditPersonViewModel>();
+
+        public ICollection<string> AllSections { get; set; } =
+            new HashSet<string>();
     }
 }

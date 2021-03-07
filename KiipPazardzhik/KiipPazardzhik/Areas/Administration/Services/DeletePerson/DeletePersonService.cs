@@ -4,13 +4,14 @@
 
 namespace KiipPazardzhik.Areas.Administration.Services.DeletePerson
 {
-    using System;
     using System.Collections.Generic;
     using System.Linq;
     using System.Threading.Tasks;
+
     using KiipPazardzhik.Areas.Administration.ViewModels.DeletePerson.InputModels;
     using KiipPazardzhik.Areas.Administration.ViewModels.DeletePerson.ViewModels;
     using KiipPazardzhik.Data;
+
     using Microsoft.EntityFrameworkCore;
 
     public class DeletePersonService : IDeletePersonService

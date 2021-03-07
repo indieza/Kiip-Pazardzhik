@@ -1,14 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Identity.UI.Services;
-using Microsoft.Extensions.Configuration;
-using SendGrid;
-using SendGrid.Helpers.Mail;
+﻿// <copyright file="EmailSender.cs" company="Kiip Pazardzhik">
+// Copyright (c) Kiip Pazardzhik. All rights reserved.
+// </copyright>
 
 namespace KiipPazardzhik.Services.Cloud
 {
+    using System.Threading.Tasks;
+
+    using Microsoft.AspNetCore.Identity.UI.Services;
+    using Microsoft.Extensions.Configuration;
+
+    using SendGrid;
+    using SendGrid.Helpers.Mail;
+
     public class EmailSender : IEmailSender
     {
         private readonly IConfiguration configuration;

@@ -1,17 +1,14 @@
-﻿using KiipPazardzhik.Constraints;
+﻿using System.Diagnostics;
+using System.Threading.Tasks;
+
 using KiipPazardzhik.Models;
 using KiipPazardzhik.Models.Users;
 using KiipPazardzhik.Services.Home;
 using KiipPazardzhik.ViewModels.Home.ViewModels;
+
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
-using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace KiipPazardzhik.Controllers
 {

@@ -1,11 +1,11 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿// <copyright file="RegisterController.cs" company="Kiip Pazardzhik">
+// Copyright (c) Kiip Pazardzhik. All rights reserved.
+// </copyright>
 
 namespace KiipPazardzhik.Controllers
 {
+    using Microsoft.AspNetCore.Mvc;
+
     public class RegisterController : Controller
     {
         public RegisterController()
@@ -14,7 +14,7 @@ namespace KiipPazardzhik.Controllers
 
         public IActionResult Index()
         {
-            return View();
+            return this.View();
         }
     }
 }

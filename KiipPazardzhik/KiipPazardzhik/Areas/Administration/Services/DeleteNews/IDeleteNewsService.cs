@@ -4,10 +4,9 @@
 
 namespace KiipPazardzhik.Areas.Administration.Services.DeleteNews
 {
-    using System;
     using System.Collections.Generic;
-    using System.Linq;
     using System.Threading.Tasks;
+
     using KiipPazardzhik.Areas.Administration.ViewModels.DeleteNews.InputModels;
     using KiipPazardzhik.Areas.Administration.ViewModels.DeleteNews.VeiwModels;
 
