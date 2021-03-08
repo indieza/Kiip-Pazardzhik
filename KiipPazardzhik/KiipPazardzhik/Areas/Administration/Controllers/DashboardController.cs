@@ -29,7 +29,7 @@ namespace KiipPazardzhik.Areas.Administration.Controllers
         {
             var viewModel = new DashboardViewModel
             {
-                AllUsers = this.dashboardService.GetAllUsers(),
+                AllUsers = await this.dashboardService.GetAllUsers(),
                 AllAdminsCount = await this.dashboardService.GetAllAdminsCount(),
                 AllUsersCount = await this.dashboardService.GetAllUsersCount(),
                 AllAdminsNames = await this.dashboardService.GetAllAdminsNames(),
@@ -89,7 +89,23 @@ namespace KiipPazardzhik.Areas.Administration.Controllers
             if (id != string.Empty)
             {
                 await this.dashboardService.ApproveUser(id);
-                this.TempData["Success"] = MessageConstants.SuccessfullyApprovedEser;
+                this.TempData["Success"] = MessageConstants.SuccessfullyApprovedUser;
+            }
+            else
+            {
+                this.TempData["Error"] = MessageConstants.InvalidInputModel;
+            }
+
+            return this.RedirectToAction("Index", "Dashboard");
+        }
+
+        [Route("/Administration/Dashboard/DeleteUser/{id?}")]
+        public async Task<IActionResult> DeleteUser(string id)
+        {
+            if (id != string.Empty)
+            {
+                await this.dashboardService.DeleteUser(id);
+                this.TempData["Success"] = MessageConstants.SuccessfullyDeleteUser;
             }
             else
             {

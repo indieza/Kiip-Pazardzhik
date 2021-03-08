@@ -9,17 +9,17 @@ namespace KiipPazardzhik.Areas.Administration.ViewModels.AddPerson.InputModels
     public class AddPersonInputModel
     {
         [Required(ErrorMessage = "Полето е задължително!")]
-        [MaxLength(20)]
+        [MaxLength(40)]
         [Display(Name = "Име")]
         public string FirstName { get; set; }
 
         [Required(ErrorMessage = "Полето е задължително!")]
-        [MaxLength(20)]
+        [MaxLength(40)]
         [Display(Name = "Презиме")]
         public string MiddleName { get; set; }
 
         [Required(ErrorMessage = "Полето е задължително!")]
-        [MaxLength(20)]
+        [MaxLength(40)]
         [Display(Name = "Фамилия")]
         public string LastName { get; set; }
 

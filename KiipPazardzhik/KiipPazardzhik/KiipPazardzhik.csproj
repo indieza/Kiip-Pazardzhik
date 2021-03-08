@@ -36,7 +36,10 @@
     <Folder Include="Areas\Administration\Models\" />
     <Folder Include="Areas\Administration\ViewModels\AddDocument\ViewModels\" />
     <Folder Include="Areas\Administration\ViewModels\AddNews\ViewModels\" />
+    <Folder Include="Areas\Administration\ViewModels\AddPeople\ViewModels\" />
     <Folder Include="ViewModels\Home\InputModels\" />
+    <Folder Include="ViewModels\News\InputModels\" />
+    <Folder Include="ViewModels\Website\InputModels\" />
   </ItemGroup>
 
   <ItemGroup>

@@ -1,0 +1,39 @@
+﻿@{
+    ViewData["Title"] = "Добави хора";
+}
+
+@model AddPeopleInputModel
+
+<h1 class="mt-4">@ViewData["Title"]</h1>
+<hr />
+<partial name="_TempDataPartial" />
+
+<div class="row">
+    <form method="get">
+        <button type="submit" asp-area="Administration" asp-controller="AddPeople" asp-action="DownloadTemplate" class="btn btn-info">
+            Свали шаблон
+        </button>
+    </form>
+</div>
+<hr />
+<form method="post" enctype="multipart/form-data">
+    <div class="row">
+        <div class="col-md-12 form-group">
+            <label asp-for="@this.Model.File"></label>
+            <input type="file" class="form-control-file" asp-for="@this.Model.File" />
+            <span class="text-danger" asp-validation-for="@this.Model.File"></span>
+        </div>
+    </div>
+    <br />
+    <div class="row">
+        <button class="btn btn-success" asp-area="Administration" asp-controller="AddPeople" asp-action="UploadTemplate">
+            <i class="fas fa-check"></i> Създай
+        </button>
+    </div>
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+    <script src="~/lib/tinymce/tinymce.min.js" type="text/javascript"></script>
+    <script src="~/lib/tinymce/visualizer.js" type="text/javascript"></script>
+}

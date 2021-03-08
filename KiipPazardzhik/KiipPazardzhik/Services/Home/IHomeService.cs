@@ -4,9 +4,11 @@
 
 namespace KiipPazardzhik.Services.Home
 {
+    using System.Collections.Generic;
     using System.Threading.Tasks;
 
     using KiipPazardzhik.Models.Users;
+    using KiipPazardzhik.ViewModels.Website.ViewModels;
 
     public interface IHomeService
     {
@@ -15,5 +17,7 @@ namespace KiipPazardzhik.Services.Home
         Task<bool> HasAdministrator();
 
         Task MakeYourselfAdmin(ApplicationUser currentUser);
+
+        ICollection<SingleNewsViewModel> GetTopNews(int count);
     }
 }

@@ -30,6 +30,8 @@ namespace KiipPazardzhik.Controllers
             var model = new HomeViewModel
             {
                 HasAdmin = await this.homeServices.HasAdministrator(),
+                TopThreeNews = this.homeServices.GetTopNews(3),
+                TopFiveNews = this.homeServices.GetTopNews(5),
             };
 
             return this.View(model);

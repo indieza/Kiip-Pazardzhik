@@ -39,7 +39,13 @@ namespace KiipPazardzhik.Constraints
         public const string SuccessfullyEditNews =
             "Успешно промени новина.";
 
-        public const string SuccessfullyApprovedEser =
+        public const string SuccessfullyApprovedUser =
             "Успешно потвърди човек.";
+
+        public const string SuccessfullyDeleteUser =
+            "Успешно изтри човек.";
+
+        public const string SuccessfullyAddPeople =
+           "Успешно добави хора.";
     }
 }

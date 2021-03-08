@@ -4,11 +4,14 @@
 
 namespace KiipPazardzhik.Services.Home
 {
+    using System.Collections.Generic;
+    using System.Linq;
     using System.Threading.Tasks;
 
     using KiipPazardzhik.Constraints;
     using KiipPazardzhik.Data;
     using KiipPazardzhik.Models.Users;
+    using KiipPazardzhik.ViewModels.Website.ViewModels;
 
     using Microsoft.AspNetCore.Identity;
     using Microsoft.EntityFrameworkCore;
@@ -76,6 +79,40 @@ namespace KiipPazardzhik.Services.Home
         public async Task MakeYourselfAdmin(ApplicationUser currentUser)
         {
             await this.userManager.AddToRoleAsync(currentUser, GlobalConstants.AdministratorRole);
+        }
+
+        public ICollection<SingleNewsViewModel> GetTopNews(int count)
+        {
+            var result = new List<SingleNewsViewModel>();
+            var allNews = this.db.News.OrderByDescending(x => x.CreatedOn).Take(count).ToList();
+
+            foreach (var currentNews in allNews)
+            {
+                var news = new SingleNewsViewModel
+                {
+                    Id = currentNews.Id,
+                    Description = currentNews.Description,
+                    Title = currentNews.Title,
+                    ShortDescription = currentNews.ShortDescription,
+                    CreatedOn = currentNews.CreatedOn,
+                };
+
+                var allNewsFiles = this.db.WebsiteFiles.Where(x => x.NewsId == currentNews.Id).ToList();
+
+                foreach (var file in allNewsFiles)
+                {
+                    news.Files.Add(new WebsiteFileViewModel
+                    {
+                        Id = file.Id,
+                        Name = file.Name,
+                        Url = file.Url,
+                    });
+                }
+
+                result.Add(news);
+            }
+
+            return result;
         }
     }
 }

@@ -19,15 +19,15 @@ namespace KiipPazardzhik.Models
         public string Id { get; set; }
 
         [Required]
-        [MaxLength(20)]
+        [MaxLength(40)]
         public string FirstName { get; set; }
 
         [Required]
-        [MaxLength(20)]
+        [MaxLength(40)]
         public string MiddleName { get; set; }
 
         [Required]
-        [MaxLength(20)]
+        [MaxLength(40)]
         public string LastName { get; set; }
 
         [Required]

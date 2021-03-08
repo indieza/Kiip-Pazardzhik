@@ -10,6 +10,7 @@ namespace KiipPazardzhik
 
     using KiipPazardzhik.Areas.Administration.Services.AddDocument;
     using KiipPazardzhik.Areas.Administration.Services.AddNews;
+    using KiipPazardzhik.Areas.Administration.Services.AddPeople;
     using KiipPazardzhik.Areas.Administration.Services.AddPerson;
     using KiipPazardzhik.Areas.Administration.Services.Dashboard;
     using KiipPazardzhik.Areas.Administration.Services.DeleteDocument;
@@ -21,6 +22,7 @@ namespace KiipPazardzhik
     using KiipPazardzhik.Models.Users;
     using KiipPazardzhik.Services.Cloud;
     using KiipPazardzhik.Services.Home;
+    using KiipPazardzhik.Services.News;
 
     using Microsoft.AspNetCore.Builder;
     using Microsoft.AspNetCore.Hosting;
@@ -87,6 +89,7 @@ namespace KiipPazardzhik
 
             services.AddTransient<IEmailSender, EmailSender>();
             services.AddTransient<IHomeService, HomeService>();
+            services.AddTransient<INewsService, NewsService>();
 
             // Register Administration Services
             services.AddTransient<IDashboardService, DashboardService>();
@@ -98,6 +101,7 @@ namespace KiipPazardzhik
             services.AddTransient<IEditPersonService, EditPersonService>();
             services.AddTransient<IDeleteDocumentService, DeleteDocumentService>();
             services.AddTransient<IEditNewsService, EditNewsService>();
+            services.AddTransient<IAddPeopleService, AddPeopleService>();
 
             services.AddControllersWithViews();
             services.AddRazorPages();

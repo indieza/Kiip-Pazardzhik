@@ -45,6 +45,13 @@ namespace KiipPazardzhik.Areas.Administration.Services.Dashboard
             await this.db.SaveChangesAsync();
         }
 
+        public async Task DeleteUser(string id)
+        {
+            var user = await this.db.Users.FirstOrDefaultAsync(x => x.Id == id);
+            this.db.Users.Remove(user);
+            await this.db.SaveChangesAsync();
+        }
+
         public async Task<int> GetAllAdminsCount()
         {
             var role = await this.db.Roles.FirstOrDefaultAsync(x => x.Name == GlobalConstants.AdministratorRole);
@@ -86,13 +93,24 @@ namespace KiipPazardzhik.Areas.Administration.Services.Dashboard
             return notAdminsNames;
         }
 
-        public ICollection<ApplicationUser> GetAllUsers()
+        public async Task<ICollection<ApplicationUser>> GetAllUsers()
         {
-            return this.db.Users
+            var result = new List<ApplicationUser>();
+            var allUsers = this.db.Users
                 .OrderBy(x => x.UserName)
                 .ThenBy(x => x.FirstName)
                 .ThenBy(x => x.LastName)
                 .ToList();
+
+            foreach (var user in allUsers)
+            {
+                if (!await this.userManager.IsInRoleAsync(user, GlobalConstants.AdministratorRole))
+                {
+                    result.Add(user);
+                }
+            }
+
+            return result;
         }
 
         public async Task<int> GetAllUsersCount()

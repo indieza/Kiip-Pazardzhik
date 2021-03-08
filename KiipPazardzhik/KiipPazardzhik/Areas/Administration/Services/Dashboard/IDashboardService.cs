@@ -11,7 +11,7 @@ namespace KiipPazardzhik.Areas.Administration.Services.Dashboard
 
     public interface IDashboardService
     {
-        ICollection<ApplicationUser> GetAllUsers();
+        Task<ICollection<ApplicationUser>> GetAllUsers();
 
         Task<int> GetAllAdminsCount();
 
@@ -26,5 +26,7 @@ namespace KiipPazardzhik.Areas.Administration.Services.Dashboard
         Task AddAdministrator(string username);
 
         Task ApproveUser(string id);
+
+        Task DeleteUser(string id);
     }
 }

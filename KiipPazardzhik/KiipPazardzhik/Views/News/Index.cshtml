@@ -1,3 +1,43 @@
 ﻿@{
     ViewData["Title"] = "Новини";
 }
+
+@model AllNewsViewModel
+
+<div class="page-heading header-text">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h1>Новини</h1>
+                <span>Всички новини, важни за вас</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="services">
+    <div class="container">
+        @for (int i = 0; i < this.Model.AllNews.Count(); i += 3)
+        {
+            <div class="row">
+                @{
+                    int j = 0;
+                    for (; j <= 2 && i + j < this.Model.AllNews.Count(); j++)
+                    {
+                        <div class="col-md-4">
+                            <div class="service-item">
+                                <img src="assets/images/service_02.jpg" alt="">
+                                <div class="down-content">
+                                    <h4>@this.Model.AllNews.ElementAt(i + j).Title</h4>
+                                    <p>@this.Model.AllNews.ElementAt(i + j).ShortDescription</p>
+                                    <a href="" class="filled-button">Прочети още</a>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                }
+            </div>
+            <br />
+        }
+    </div>
+</div>
