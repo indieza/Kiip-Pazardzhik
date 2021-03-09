@@ -25,9 +25,14 @@
                 for (; j <= 5 && i + j < this.Model.AllSections.Count(); j++)
                 {
                     <div class="col-md-2">
-                        <button style="width: 100%" class="btn btn-info">
-                            @this.Model.AllSections.ElementAt(i + j).Name
-                        </button>
+                        <form method="get">
+                            <button asp-area=""
+                                    asp-controller="Register"
+                                    asp-action="GetSectionByName"
+                                    asp-route-sectionName="@this.Model.AllSections.ElementAt(i + j).Name" style="width: 100%" class="btn btn-info">
+                                @this.Model.AllSections.ElementAt(i + j).Name
+                            </button>
+                        </form>
                     </div>
                 }
             }
@@ -35,3 +40,7 @@
         <br />
     }
 </div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

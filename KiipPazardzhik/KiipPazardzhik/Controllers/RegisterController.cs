@@ -27,5 +27,18 @@ namespace KiipPazardzhik.Controllers
 
             return this.View(model);
         }
+
+        [HttpGet]
+        [Route("/Register/GetSectionByName/{sectionName}")]
+        public IActionResult GetSectionByName([FromRoute] string sectionName)
+        {
+            var model = new GetSectionByNameBaseModel
+            {
+                SectionName = sectionName,
+                AllPeople = this.registerService.GetAllPeopleInSection(sectionName),
+            };
+
+            return this.View(model);
+        }
     }
 }

@@ -1,0 +1,58 @@
+﻿@{
+    ViewData["Title"] = this.Model.SectionName;
+}
+
+@model GetSectionByNameBaseModel
+
+<div class="page-heading header-text">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h1>@ViewData["Title"]</h1>
+            </div>
+        </div>
+    </div>
+</div>
+<br />
+<div class="container">
+    <div class="row">
+        <table class="table table-hover">
+            <thead>
+                <tr style="font-size: 14px; background-color: aliceblue;">
+                    <th scope="col">№</th>
+                    <th scope="col">Име</th>
+                    <th scope="col">Презиме</th>
+                    <th scope="col">Фамилия</th>
+                    <th scope="col">GSM</th>
+                    <th scope="col">Мейл</th>
+                    <th scope="col">ПП</th>
+                    <th scope="col">Технически контрол</th>
+                    <th scope="col">Активен</th>
+                    <th scope="col">Замразен</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var person in this.Model.AllPeople)
+                {
+                    <tr>
+                        <th scope="row">@person.RegisterNumber</th>
+                        <td>@person.FirstName</td>
+                        <td>@person.MiddleName</td>
+                        <td>@person.LastName</td>
+                        <td>@person.Phone</td>
+                        <td>@(person.Email == string.Empty ? "Няма" : person.Email)</td>
+                        <td>@person.LegalCapacity</td>
+                        <td>@person.TechnicalControl</td>
+                        <td>@(person.IsActive ? "Да" : "Не")</td>
+                        <td>@(person.IsFrozen ? "Да" : "Не")</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+<br />
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
