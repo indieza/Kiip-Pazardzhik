@@ -31,6 +31,13 @@ namespace KiipPazardzhik.Models
         public string LastName { get; set; }
 
         [Required]
+        [MaxLength(100)]
+        public string Position { get; set; }
+
+        [MaxLength(60)]
+        public string TechnicalControl { get; set; }
+
+        [Required]
         [Phone]
         public string Phone { get; set; }
 

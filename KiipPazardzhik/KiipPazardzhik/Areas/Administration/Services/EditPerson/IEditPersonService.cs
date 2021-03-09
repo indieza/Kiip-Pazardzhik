@@ -19,5 +19,7 @@ namespace KiipPazardzhik.Areas.Administration.Services.EditPerson
         Task EditPerson(EditPersonInputModel model);
 
         ICollection<string> GetAllSections();
+        ICollection<string> GetAllPositions();
+        ICollection<string> GetAllTechnicalControl();
     }
 }

@@ -1,3 +1,37 @@
 ﻿@{
     ViewData["Title"] = "Регистър";
 }
+
+@model RegisterBaseModel
+
+<div class="page-heading header-text">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h1>@ViewData["Title"]</h1>
+                <span>Всички регистри, важни за вас</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<br />
+<div class="container">
+    @for (int i = 0; i < this.Model.AllSections.Count(); i += 6)
+    {
+        <div class="row">
+            @{
+                int j = 0;
+                for (; j <= 5 && i + j < this.Model.AllSections.Count(); j++)
+                {
+                    <div class="col-md-2">
+                        <button style="width: 100%" class="btn btn-info">
+                            @this.Model.AllSections.ElementAt(i + j).Name
+                        </button>
+                    </div>
+                }
+            }
+        </div>
+        <br />
+    }
+</div>

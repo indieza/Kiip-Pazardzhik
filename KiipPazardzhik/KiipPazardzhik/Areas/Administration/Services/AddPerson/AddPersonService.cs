@@ -35,14 +35,26 @@ namespace KiipPazardzhik.Areas.Administration.Services.AddPerson
                 Section = model.Section,
                 IsActive = model.IsActive,
                 IsFrozen = model.IsFrozen,
+                TechnicalControl = model.TechnicalControl,
+                Position = model.Position,
             });
 
             await this.db.SaveChangesAsync();
         }
 
+        public ICollection<string> GetAllPosition()
+        {
+            return this.db.People.Select(x => x.Position).Distinct().ToList();
+        }
+
         public ICollection<string> GetAllSections()
         {
             return this.db.People.Select(x => x.Section).Distinct().ToList();
+        }
+
+        public ICollection<string> GetAllTechnicalControls()
+        {
+            return this.db.People.Select(x => x.TechnicalControl).Distinct().ToList();
         }
     }
 }

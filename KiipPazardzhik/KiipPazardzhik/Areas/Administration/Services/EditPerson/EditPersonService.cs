@@ -29,7 +29,9 @@ namespace KiipPazardzhik.Areas.Administration.Services.EditPerson
             person.FirstName = model.FirstName;
             person.MiddleName = model.MiddleName;
             person.LastName = model.LastName;
+            person.Position = model.Position;
             person.Email = model.Email;
+            person.TechnicalControl = model.TechnicalControl;
             person.RegisterNumber = model.RegisterNumber;
             person.IsActive = model.IsActive;
             person.IsFrozen = model.IsFrozen;
@@ -43,7 +45,7 @@ namespace KiipPazardzhik.Areas.Administration.Services.EditPerson
 
         public ICollection<EditPersonViewModel> GetAllPeople()
         {
-            var allPeople = this.db.People.ToList();
+            var allPeople = this.db.People.OrderBy(x => x.RegisterNumber).ToList();
             var result = new List<EditPersonViewModel>();
 
             foreach (var person in allPeople)
@@ -58,9 +60,19 @@ namespace KiipPazardzhik.Areas.Administration.Services.EditPerson
             return result;
         }
 
+        public ICollection<string> GetAllPositions()
+        {
+            return this.db.People.Select(x => x.Position).Distinct().ToList();
+        }
+
         public ICollection<string> GetAllSections()
         {
             return this.db.People.Select(x => x.Section).Distinct().ToList();
+        }
+
+        public ICollection<string> GetAllTechnicalControl()
+        {
+            return this.db.People.Select(x => x.TechnicalControl).Distinct().ToList();
         }
 
         public async Task<GetPersonDataViewModel> GetPersonById(string personId)
@@ -71,7 +83,9 @@ namespace KiipPazardzhik.Areas.Administration.Services.EditPerson
                 FirstName = person.FirstName,
                 MiddleName = person.MiddleName,
                 LastName = person.LastName,
+                Position = person.Position,
                 Email = person.Email,
+                TechnicalControl = person.TechnicalControl,
                 LegalCapacity = person.LegalCapacity,
                 Phone = person.Phone,
                 RegisterNumber = person.RegisterNumber,

@@ -28,6 +28,15 @@ namespace KiipPazardzhik.Areas.Administration.ViewModels.EditPerson.InputModels
         public string LastName { get; set; }
 
         [Required(ErrorMessage = "Полето е задължително!")]
+        [MaxLength(100)]
+        [Display(Name = "Позиция")]
+        public string Position { get; set; }
+
+        [MaxLength(60)]
+        [Display(Name = "Технически контрол")]
+        public string TechnicalControl { get; set; }
+
+        [Required(ErrorMessage = "Полето е задължително!")]
         [Phone]
         [Display(Name = "Телефон")]
         public string Phone { get; set; }

@@ -10,10 +10,32 @@
 
 <form method="post" enctype="multipart/form-data">
     <div class="row">
-        <div class="form-group col-lg-12">
+        <div class="form-group col-lg-4">
             <label asp-for="@this.Model.AddPersonInputModel.RegisterNumber"></label>
             <input class="form-control" type="text" asp-for="@this.Model.AddPersonInputModel.RegisterNumber" autocomplete="off" />
             <span asp-validation-for="@this.Model.AddPersonInputModel.RegisterNumber" class="text-danger"></span>
+        </div>
+        <div class="form-group col-lg-4">
+            <label asp-for="@this.Model.AddPersonInputModel.Position"></label>
+            <input list="positions" class="form-control" type="text" asp-for="@this.Model.AddPersonInputModel.Position" autocomplete="off" />
+            <datalist id="positions">
+                @foreach (var currentPosition in this.Model.AllPositions)
+                {
+                    <option>@currentPosition</option>
+                }
+            </datalist>
+            <span asp-validation-for="@this.Model.AddPersonInputModel.Position" class="text-danger"></span>
+        </div>
+        <div class="form-group col-lg-4">
+            <label asp-for="@this.Model.AddPersonInputModel.TechnicalControl"></label>
+            <input list="technicalControls" class="form-control" type="text" asp-for="@this.Model.AddPersonInputModel.TechnicalControl" autocomplete="off" />
+            <datalist id="technicalControls">
+                @foreach (var currentTechnicalControl in this.Model.AllTechnicalControls)
+                {
+                    <option>@currentTechnicalControl</option>
+                }
+            </datalist>
+            <span asp-validation-for="@this.Model.AddPersonInputModel.TechnicalControl" class="text-danger"></span>
         </div>
     </div>
     <div class="row">

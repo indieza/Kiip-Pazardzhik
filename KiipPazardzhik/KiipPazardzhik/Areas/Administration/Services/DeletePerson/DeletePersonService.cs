@@ -32,7 +32,7 @@ namespace KiipPazardzhik.Areas.Administration.Services.DeletePerson
 
         public ICollection<DeletePersonViewModel> GetAllPeople()
         {
-            var people = this.db.People.ToList();
+            var people = this.db.People.OrderBy(x => x.RegisterNumber).ToList();
             var result = new List<DeletePersonViewModel>();
 
             foreach (var person in people)

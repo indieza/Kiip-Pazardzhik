@@ -4,17 +4,28 @@
 
 namespace KiipPazardzhik.Controllers
 {
+    using KiipPazardzhik.Services.Register;
+    using KiipPazardzhik.ViewModels.Register.ViewModels;
+
     using Microsoft.AspNetCore.Mvc;
 
     public class RegisterController : Controller
     {
-        public RegisterController()
+        private readonly IRegisterService registerService;
+
+        public RegisterController(IRegisterService registerService)
         {
+            this.registerService = registerService;
         }
 
         public IActionResult Index()
         {
-            return this.View();
+            var model = new RegisterBaseModel
+            {
+                AllSections = this.registerService.GetAllSections(),
+            };
+
+            return this.View(model);
         }
     }
 }

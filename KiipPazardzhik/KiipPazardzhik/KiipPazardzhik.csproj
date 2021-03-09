@@ -39,6 +39,7 @@
     <Folder Include="Areas\Administration\ViewModels\AddPeople\ViewModels\" />
     <Folder Include="ViewModels\Home\InputModels\" />
     <Folder Include="ViewModels\News\InputModels\" />
+    <Folder Include="ViewModels\Register\InputModels\" />
     <Folder Include="ViewModels\Website\InputModels\" />
   </ItemGroup>
 

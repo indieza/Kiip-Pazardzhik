@@ -32,6 +32,8 @@ namespace KiipPazardzhik.Areas.Administration.Controllers
                 EditPersonInputModel = new EditPersonInputModel(),
                 AllPeople = this.editPersonService.GetAllPeople(),
                 AllSections = this.editPersonService.GetAllSections(),
+                AllPositions = this.editPersonService.GetAllPositions(),
+                AllTechnicalControls = this.editPersonService.GetAllTechnicalControl(),
             };
 
             return this.View(model);

@@ -23,6 +23,7 @@ namespace KiipPazardzhik
     using KiipPazardzhik.Services.Cloud;
     using KiipPazardzhik.Services.Home;
     using KiipPazardzhik.Services.News;
+    using KiipPazardzhik.Services.Register;
 
     using Microsoft.AspNetCore.Builder;
     using Microsoft.AspNetCore.Hosting;
@@ -32,6 +33,8 @@ namespace KiipPazardzhik
     using Microsoft.Extensions.Configuration;
     using Microsoft.Extensions.DependencyInjection;
     using Microsoft.Extensions.Hosting;
+
+    using OfficeOpenXml;
 
     public class Startup
     {
@@ -90,6 +93,7 @@ namespace KiipPazardzhik
             services.AddTransient<IEmailSender, EmailSender>();
             services.AddTransient<IHomeService, HomeService>();
             services.AddTransient<INewsService, NewsService>();
+            services.AddTransient<IRegisterService, RegisterService>();
 
             // Register Administration Services
             services.AddTransient<IDashboardService, DashboardService>();
@@ -102,6 +106,9 @@ namespace KiipPazardzhik
             services.AddTransient<IDeleteDocumentService, DeleteDocumentService>();
             services.AddTransient<IEditNewsService, EditNewsService>();
             services.AddTransient<IAddPeopleService, AddPeopleService>();
+
+            // Register OfficeOpenXml License
+            ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
 
             services.AddControllersWithViews();
             services.AddRazorPages();

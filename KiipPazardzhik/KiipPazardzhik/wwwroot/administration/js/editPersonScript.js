@@ -25,6 +25,8 @@
             $("#email").val(data.email);
             $("#isActive").val(data.isActive);
             $("#isFrozen").val(data.isFrozen);
+            $("#position").val(data.position);
+            $("#technicalControl").val(data.technicalControl);
         },
         error: function (msg) {
             console.error(msg);

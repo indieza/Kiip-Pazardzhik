@@ -43,15 +43,17 @@ namespace KiipPazardzhik.Areas.Administration.Services.AddPeople
                         var person = new AddPersonInputModel
                         {
                             RegisterNumber = worksheet.Cells[row, 1].Value?.ToString(),
-                            FirstName = worksheet.Cells[row, 2].Value?.ToString(),
-                            MiddleName = worksheet.Cells[row, 3].Value?.ToString(),
-                            LastName = worksheet.Cells[row, 4].Value?.ToString(),
-                            LegalCapacity = worksheet.Cells[row, 5].Value?.ToString(),
-                            Section = worksheet.Cells[row, 6].Value?.ToString(),
-                            Phone = worksheet.Cells[row, 7].Value?.ToString(),
-                            Email = worksheet.Cells[row, 8].Value?.ToString(),
-                            IsActive = worksheet.Cells[row, 9].Value?.ToString() == "Да",
-                            IsFrozen = worksheet.Cells[row, 10].Value?.ToString() == "Да",
+                            Position = worksheet.Cells[row, 2].Value?.ToString(),
+                            FirstName = worksheet.Cells[row, 3].Value?.ToString(),
+                            MiddleName = worksheet.Cells[row, 4].Value?.ToString(),
+                            LastName = worksheet.Cells[row, 5].Value?.ToString(),
+                            LegalCapacity = worksheet.Cells[row, 6].Value?.ToString(),
+                            Section = worksheet.Cells[row, 7].Value?.ToString(),
+                            Phone = worksheet.Cells[row, 8].Value?.ToString(),
+                            Email = worksheet.Cells[row, 9].Value?.ToString(),
+                            TechnicalControl = worksheet.Cells[row, 10].Value?.ToString(),
+                            IsActive = worksheet.Cells[row, 11].Value?.ToString() == "Да",
+                            IsFrozen = worksheet.Cells[row, 12].Value?.ToString() == "Да",
                         };
 
                         if (IsValid(person))
@@ -59,6 +61,7 @@ namespace KiipPazardzhik.Areas.Administration.Services.AddPeople
                             this.db.People.Add(new Person
                             {
                                 RegisterNumber = person.RegisterNumber,
+                                Position = person.Position,
                                 FirstName = person.FirstName,
                                 MiddleName = person.MiddleName,
                                 LastName = person.LastName,
@@ -66,6 +69,7 @@ namespace KiipPazardzhik.Areas.Administration.Services.AddPeople
                                 Section = person.Section,
                                 Phone = person.Phone,
                                 Email = person.Email,
+                                TechnicalControl = person.TechnicalControl,
                                 IsActive = person.IsActive,
                                 IsFrozen = person.IsFrozen,
                             });
@@ -85,23 +89,25 @@ namespace KiipPazardzhik.Areas.Administration.Services.AddPeople
             {
                 var workSheet = package.Workbook.Worksheets.Add("Шаблон");
                 workSheet.Cells[1, 1].Value = "Регистрационен номер";
-                workSheet.Cells[1, 2].Value = "Име";
-                workSheet.Cells[1, 3].Value = "Презиме";
-                workSheet.Cells[1, 4].Value = "Фамилия";
-                workSheet.Cells[1, 5].Value = "Правоспособност";
-                workSheet.Cells[1, 6].Value = "Секция";
-                workSheet.Cells[1, 7].Value = "Телефон";
-                workSheet.Cells[1, 8].Value = "Мейл";
+                workSheet.Cells[1, 2].Value = "Позиция";
+                workSheet.Cells[1, 3].Value = "Име";
+                workSheet.Cells[1, 4].Value = "Презиме";
+                workSheet.Cells[1, 5].Value = "Фамилия";
+                workSheet.Cells[1, 6].Value = "ПП";
+                workSheet.Cells[1, 7].Value = "Секция";
+                workSheet.Cells[1, 8].Value = "Телефон";
+                workSheet.Cells[1, 9].Value = "Мейл";
+                workSheet.Cells[1, 10].Value = "Технически контрол";
 
-                workSheet.Cells[1, 9].Value = "Активен";
-                var activeValidation = workSheet.DataValidations.AddListValidation("I2");
+                workSheet.Cells[1, 11].Value = "Активен";
+                var activeValidation = workSheet.DataValidations.AddListValidation("K2");
                 activeValidation.AllowBlank = false;
                 activeValidation.ShowErrorMessage = true;
                 activeValidation.Formula.Values.Add("Да");
                 activeValidation.Formula.Values.Add("Не");
 
-                workSheet.Cells[1, 10].Value = "Замразен";
-                var frozenValidation = workSheet.DataValidations.AddListValidation("J2");
+                workSheet.Cells[1, 12].Value = "Замразен";
+                var frozenValidation = workSheet.DataValidations.AddListValidation("L2");
                 frozenValidation.AllowBlank = false;
                 frozenValidation.ShowErrorMessage = true;
                 frozenValidation.Formula.Values.Add("Да");
