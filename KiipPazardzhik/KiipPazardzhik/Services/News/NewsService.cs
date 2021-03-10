@@ -12,6 +12,8 @@ namespace KiipPazardzhik.Services.News
     using KiipPazardzhik.Data;
     using KiipPazardzhik.ViewModels.Website.ViewModels;
 
+    using Microsoft.EntityFrameworkCore;
+
     public class NewsService : INewsService
     {
         private readonly ApplicationDbContext db;
@@ -53,6 +55,34 @@ namespace KiipPazardzhik.Services.News
             }
 
             return result;
+        }
+
+        public async Task<SingleNewsViewModel> GetNewsById(string id)
+        {
+            var currentNews = await this.db.News.FirstOrDefaultAsync(x => x.Id == id);
+
+            var news = new SingleNewsViewModel
+            {
+                Id = currentNews.Id,
+                Description = currentNews.Description,
+                Title = currentNews.Title,
+                ShortDescription = currentNews.ShortDescription,
+                CreatedOn = currentNews.CreatedOn,
+            };
+
+            var allNewsFiles = this.db.WebsiteFiles.Where(x => x.NewsId == currentNews.Id).ToList();
+
+            foreach (var file in allNewsFiles)
+            {
+                news.Files.Add(new WebsiteFileViewModel
+                {
+                    Id = file.Id,
+                    Name = file.Name,
+                    Url = file.Url,
+                });
+            }
+
+            return news;
         }
     }
 }

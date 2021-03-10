@@ -1,0 +1,43 @@
+﻿@{
+    ViewData["Title"] = "Новина";
+}
+
+@model SingleNewsViewModel
+
+<div class="page-heading header-text">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h1>Новини</h1>
+                <span>@this.Model.Title</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="services">
+    <div class="container">
+        <div class="row">
+            <h3>@this.Model.Title</h3>
+        </div>
+        <div class="row">
+            <p>
+                Създадена на: @this.Model.CreatedOn.ToLocalTime().ToString("dd/mm/yyyy")
+            </p>
+        </div>
+        <br />
+        <div class="row">
+            @Html.Raw(this.Model.Description)
+        </div>
+        @foreach (var file in this.Model.Files)
+        {
+            <div class="row">
+                <p>
+                    <a href="@file.Url" target="_blank">
+                        @file.Name
+                    </a>
+                </p>
+            </div>
+        }
+    </div>
+</div>

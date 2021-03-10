@@ -15,7 +15,12 @@
                         <h6>@news.CreatedOn.ToLocalTime().ToString("dd-mm-yyyy")</h6>
                         <h4>@news.Title</h4>
                         <p>@news.ShortDescription</p>
-                        <a href="#" class="filled-button">Прочети още</a>
+                        <a asp-area=""
+                           asp-controller="News"
+                           asp-action="CurrentNews"
+                           asp-route-id="@news.Id" class="filled-button">
+                            Прочети още
+                        </a>
                     </div>
                 </div>
             </div>
@@ -76,7 +81,12 @@
                         <div class="down-content">
                             <h4>@news.Title</h4>
                             <p>@news.ShortDescription</p>
-                            <a href="" class="filled-button">Прочети още</a>
+                            <a asp-area=""
+                               asp-controller="News"
+                               asp-action="CurrentNews"
+                               asp-route-id="@news.Id" class="filled-button">
+                                Прочети още
+                            </a>
                         </div>
                     </div>
                 </div>

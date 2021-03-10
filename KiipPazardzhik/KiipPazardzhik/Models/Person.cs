@@ -52,6 +52,9 @@ namespace KiipPazardzhik.Models
         [MaxLength(20)]
         public string Section { get; set; }
 
+        [MaxLength(100)]
+        public string TechnologistKind { get; set; }
+
         [Required]
         [MaxLength(20)]
         public string LegalCapacity { get; set; }

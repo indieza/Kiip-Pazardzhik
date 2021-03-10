@@ -56,7 +56,7 @@
         </div>
     </div>
     <div class="row">
-        <div class="form-group col-lg-6">
+        <div class="form-group col-lg-4">
             <label asp-for="@this.Model.AddPersonInputModel.Section"></label>
             <input list="sections" class="form-control" type="text" asp-for="@this.Model.AddPersonInputModel.Section" autocomplete="off" />
             <datalist id="sections">
@@ -67,10 +67,15 @@
             </datalist>
             <span asp-validation-for="@Model.AddPersonInputModel.Section" class="text-danger"></span>
         </div>
-        <div class="form-group col-lg-6">
+        <div class="form-group col-lg-4">
             <label asp-for="@this.Model.AddPersonInputModel.LegalCapacity"></label>
             <input class="form-control" type="text" asp-for="@this.Model.AddPersonInputModel.LegalCapacity" autocomplete="off" />
             <span asp-validation-for="@Model.AddPersonInputModel.LegalCapacity" class="text-danger"></span>
+        </div>
+        <div class="form-group col-lg-4">
+            <label asp-for="@this.Model.AddPersonInputModel.TechnologistKind"></label>
+            <input class="form-control" type="text" asp-for="@this.Model.AddPersonInputModel.TechnologistKind" autocomplete="off" />
+            <span asp-validation-for="@Model.AddPersonInputModel.TechnologistKind" class="text-danger"></span>
         </div>
     </div>
     <div class="row">

@@ -33,6 +33,7 @@ namespace KiipPazardzhik.Areas.Administration.Services.AddPerson
                 Phone = model.Phone,
                 RegisterNumber = model.RegisterNumber,
                 Section = model.Section,
+                TechnologistKind = model.TechnologistKind,
                 IsActive = model.IsActive,
                 IsFrozen = model.IsFrozen,
                 TechnicalControl = model.TechnicalControl,

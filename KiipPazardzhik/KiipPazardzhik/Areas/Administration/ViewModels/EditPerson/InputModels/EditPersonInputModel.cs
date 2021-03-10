@@ -55,6 +55,10 @@ namespace KiipPazardzhik.Areas.Administration.ViewModels.EditPerson.InputModels
         [Display(Name = "Секция")]
         public string Section { get; set; }
 
+        [MaxLength(100)]
+        [Display(Name = "Вид технолог")]
+        public string TechnologistKind { get; set; }
+
         [Required(ErrorMessage = "Полето е задължително!")]
         [MaxLength(20)]
         [Display(Name = "Правоспособност")]

@@ -10,5 +10,6 @@ namespace KiipPazardzhik.Services.News
     public interface INewsService
     {
         ICollection<SingleNewsViewModel> GetAllNews();
+        Task<SingleNewsViewModel> GetNewsById(string id);
     }
 }

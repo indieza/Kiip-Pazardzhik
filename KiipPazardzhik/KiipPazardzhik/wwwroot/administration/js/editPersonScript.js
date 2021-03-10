@@ -27,6 +27,7 @@
             $("#isFrozen").val(data.isFrozen);
             $("#position").val(data.position);
             $("#technicalControl").val(data.technicalControl);
+            $("#technologistKind").val(data.technologistKind);
         },
         error: function (msg) {
             console.error(msg);

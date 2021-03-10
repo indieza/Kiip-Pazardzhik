@@ -20,6 +20,8 @@
 
         public string Section { get; set; }
 
+        public string TechnologistKind { get; set; }
+
         public string LegalCapacity { get; set; }
 
         public string IsFrozen { get; set; }

@@ -38,6 +38,7 @@ namespace KiipPazardzhik.Areas.Administration.Services.EditPerson
             person.LegalCapacity = model.LegalCapacity;
             person.Phone = model.Phone;
             person.Section = model.Section;
+            person.TechnologistKind = model.TechnologistKind;
 
             this.db.People.Update(person);
             await this.db.SaveChangesAsync();
@@ -92,6 +93,7 @@ namespace KiipPazardzhik.Areas.Administration.Services.EditPerson
                 IsActive = person.IsActive ? "True" : "False",
                 IsFrozen = person.IsFrozen ? "True" : "False",
                 Section = person.Section,
+                TechnologistKind = person.TechnologistKind,
             };
         }
     }

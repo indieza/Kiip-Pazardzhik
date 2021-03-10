@@ -30,7 +30,12 @@
                                 <div class="down-content">
                                     <h4>@this.Model.AllNews.ElementAt(i + j).Title</h4>
                                     <p>@this.Model.AllNews.ElementAt(i + j).ShortDescription</p>
-                                    <a href="" class="filled-button">Прочети още</a>
+                                    <a asp-area=""
+                                       asp-controller="News"
+                                       asp-action="CurrentNews"
+                                       asp-route-id="@this.Model.AllNews.ElementAt(i + j).Id" class="filled-button">
+                                        Прочети още
+                                    </a>
                                 </div>
                             </div>
                         </div>

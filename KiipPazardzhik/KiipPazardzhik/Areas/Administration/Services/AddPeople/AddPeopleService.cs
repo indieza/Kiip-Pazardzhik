@@ -49,11 +49,12 @@ namespace KiipPazardzhik.Areas.Administration.Services.AddPeople
                             LastName = worksheet.Cells[row, 5].Value?.ToString(),
                             LegalCapacity = worksheet.Cells[row, 6].Value?.ToString(),
                             Section = worksheet.Cells[row, 7].Value?.ToString(),
-                            Phone = worksheet.Cells[row, 8].Value?.ToString(),
-                            Email = worksheet.Cells[row, 9].Value?.ToString(),
-                            TechnicalControl = worksheet.Cells[row, 10].Value?.ToString(),
-                            IsActive = worksheet.Cells[row, 11].Value?.ToString() == "Да",
-                            IsFrozen = worksheet.Cells[row, 12].Value?.ToString() == "Да",
+                            TechnologistKind = worksheet.Cells[row, 8].Value?.ToString(),
+                            Phone = worksheet.Cells[row, 9].Value?.ToString(),
+                            Email = worksheet.Cells[row, 10].Value?.ToString(),
+                            TechnicalControl = worksheet.Cells[row, 11].Value?.ToString(),
+                            IsActive = worksheet.Cells[row, 12].Value?.ToString() == "Да",
+                            IsFrozen = worksheet.Cells[row, 13].Value?.ToString() == "Да",
                         };
 
                         if (IsValid(person))
@@ -67,6 +68,7 @@ namespace KiipPazardzhik.Areas.Administration.Services.AddPeople
                                 LastName = person.LastName,
                                 LegalCapacity = person.LegalCapacity,
                                 Section = person.Section,
+                                TechnologistKind = person.TechnologistKind,
                                 Phone = person.Phone,
                                 Email = person.Email,
                                 TechnicalControl = person.TechnicalControl,
@@ -95,19 +97,20 @@ namespace KiipPazardzhik.Areas.Administration.Services.AddPeople
                 workSheet.Cells[1, 5].Value = "Фамилия";
                 workSheet.Cells[1, 6].Value = "ПП";
                 workSheet.Cells[1, 7].Value = "Секция";
-                workSheet.Cells[1, 8].Value = "Телефон";
-                workSheet.Cells[1, 9].Value = "Мейл";
-                workSheet.Cells[1, 10].Value = "Технически контрол";
+                workSheet.Cells[1, 8].Value = "Вид Технолог";
+                workSheet.Cells[1, 9].Value = "Телефон";
+                workSheet.Cells[1, 10].Value = "Мейл";
+                workSheet.Cells[1, 11].Value = "Технически контрол";
 
-                workSheet.Cells[1, 11].Value = "Активен";
-                var activeValidation = workSheet.DataValidations.AddListValidation("K2");
+                workSheet.Cells[1, 12].Value = "Активен";
+                var activeValidation = workSheet.DataValidations.AddListValidation("L2");
                 activeValidation.AllowBlank = false;
                 activeValidation.ShowErrorMessage = true;
                 activeValidation.Formula.Values.Add("Да");
                 activeValidation.Formula.Values.Add("Не");
 
-                workSheet.Cells[1, 12].Value = "Замразен";
-                var frozenValidation = workSheet.DataValidations.AddListValidation("L2");
+                workSheet.Cells[1, 13].Value = "Замразен";
+                var frozenValidation = workSheet.DataValidations.AddListValidation("M2");
                 frozenValidation.AllowBlank = false;
                 frozenValidation.ShowErrorMessage = true;
                 frozenValidation.Formula.Values.Add("Да");
