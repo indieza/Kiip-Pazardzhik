@@ -14,7 +14,25 @@
     </div>
 </div>
 <br />
-<div class="container">
+<div class="peopleTable">
+    <div class="row">
+        <span class="filterSpan" onselect="changeVisibility('Всички')">
+            ВСИЧКИ
+        </span>
+        <span class="freeFilterSpan" onselect="changeVisibility('ППП')">
+            ПЪЛНА ПРОЕКТАНТСКА ПРАВОСПОСОБНОСТ
+        </span>
+        <span class="freeFilterSpan" onselect="changeVisibility('ОПП')">
+            ОГРАНИЧЕНА ПРОЕКТАНТСКА ПРАВОСПОСОБНОСТ
+        </span>
+        <span class="freeFilterSpan">
+            ЗАМРАЗЕНО ЧЛЕНСТВО
+        </span>
+        <span class="freeFilterSpan">
+            ОТПАДНАЛИ
+        </span>
+    </div>
+    <br />
     <div class="row">
         <table class="table table-hover">
             <thead>
@@ -26,9 +44,13 @@
                     <th scope="col">GSM</th>
                     <th scope="col">Мейл</th>
                     <th scope="col">ПП</th>
-                    <th scope="col">Технически контрол</th>
-                    <th scope="col">Активен</th>
-                    <th scope="col">Замразен</th>
+                    @if (this.Model.AllPeople.Any(x => x.TechnicalControl != null))
+                    {
+                        <th scope="col">Технически контрол</th>
+
+                    }
+                    <th style="display: none" scope="col">Активен</th>
+                    <th style="display: none" scope="col">Замразен</th>
                 </tr>
             </thead>
             <tbody>
@@ -41,10 +63,13 @@
                         <td>@person.LastName</td>
                         <td>@person.Phone</td>
                         <td>@(person.Email == string.Empty ? "Няма" : person.Email)</td>
-                        <td>@person.LegalCapacity</td>
-                        <td>@person.TechnicalControl</td>
-                        <td>@(person.IsActive ? "Да" : "Не")</td>
-                        <td>@(person.IsFrozen ? "Да" : "Не")</td>
+                        <td class="@person.LegalCapacity">@person.LegalCapacity</td>
+                        @if (this.Model.AllPeople.Any(x => x.TechnicalControl != null))
+                        {
+                            <td>@person.TechnicalControl</td>
+                        }
+                        <td style="display: none">@(person.IsActive ? "Да" : "Не")</td>
+                        <td style="display: none">@(person.IsFrozen ? "Да" : "Не")</td>
                     </tr>
                 }
             </tbody>
