@@ -18,3 +18,8 @@
     background-color: white;
     color: black;
 }
+
+    .freeFilterSpan:hover {
+        background-color: dodgerblue;
+        color: white;
+    }

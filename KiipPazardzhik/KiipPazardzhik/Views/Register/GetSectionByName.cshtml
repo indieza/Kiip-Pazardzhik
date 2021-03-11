@@ -16,16 +16,16 @@
 <br />
 <div class="peopleTable">
     <div class="row">
-        <span class="filterSpan" onselect="changeVisibility('Всички')">
+        <span class="filterSpan" onclick="changeVisibility('Всички', this)">
             ВСИЧКИ
         </span>
-        <span class="freeFilterSpan" onselect="changeVisibility('ППП')">
+        <span class="freeFilterSpan" onclick="changeVisibility('ППП', this)">
             ПЪЛНА ПРОЕКТАНТСКА ПРАВОСПОСОБНОСТ
         </span>
-        <span class="freeFilterSpan" onselect="changeVisibility('ОПП')">
+        <span class="freeFilterSpan" onclick="changeVisibility('ОПП', this)">
             ОГРАНИЧЕНА ПРОЕКТАНТСКА ПРАВОСПОСОБНОСТ
         </span>
-        <span class="freeFilterSpan">
+        <span class="freeFilterSpan" onclick="changeVisibility('ЗАМРАЗЕН', this)">
             ЗАМРАЗЕНО ЧЛЕНСТВО
         </span>
         <span class="freeFilterSpan">
@@ -63,7 +63,7 @@
                         <td>@person.LastName</td>
                         <td>@person.Phone</td>
                         <td>@(person.Email == string.Empty ? "Няма" : person.Email)</td>
-                        <td class="@person.LegalCapacity">@person.LegalCapacity</td>
+                        <td class="@person.LegalCapacity.ToUpper()">@person.LegalCapacity</td>
                         @if (this.Model.AllPeople.Any(x => x.TechnicalControl != null))
                         {
                             <td>@person.TechnicalControl</td>
