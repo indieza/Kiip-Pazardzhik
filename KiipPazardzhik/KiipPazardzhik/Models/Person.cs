@@ -58,11 +58,5 @@ namespace KiipPazardzhik.Models
         [Required]
         [MaxLength(20)]
         public string LegalCapacity { get; set; }
-
-        [Required]
-        public bool IsFrozen { get; set; }
-
-        [Required]
-        public bool IsActive { get; set; }
     }
 }

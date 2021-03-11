@@ -33,8 +33,6 @@ namespace KiipPazardzhik.Areas.Administration.Services.EditPerson
             person.Email = model.Email;
             person.TechnicalControl = model.TechnicalControl;
             person.RegisterNumber = model.RegisterNumber;
-            person.IsActive = model.IsActive;
-            person.IsFrozen = model.IsFrozen;
             person.LegalCapacity = model.LegalCapacity;
             person.Phone = model.Phone;
             person.Section = model.Section;
@@ -42,6 +40,11 @@ namespace KiipPazardzhik.Areas.Administration.Services.EditPerson
 
             this.db.People.Update(person);
             await this.db.SaveChangesAsync();
+        }
+
+        public ICollection<string> GetAllLegalCapacities()
+        {
+            return this.db.People.Select(x => x.LegalCapacity).Distinct().ToList();
         }
 
         public ICollection<EditPersonViewModel> GetAllPeople()
@@ -90,8 +93,6 @@ namespace KiipPazardzhik.Areas.Administration.Services.EditPerson
                 LegalCapacity = person.LegalCapacity,
                 Phone = person.Phone,
                 RegisterNumber = person.RegisterNumber,
-                IsActive = person.IsActive ? "True" : "False",
-                IsFrozen = person.IsFrozen ? "True" : "False",
                 Section = person.Section,
                 TechnologistKind = person.TechnologistKind,
             };

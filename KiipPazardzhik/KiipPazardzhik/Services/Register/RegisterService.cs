@@ -37,8 +37,6 @@ namespace KiipPazardzhik.Services.Register
                     Id = person.Id,
                     Email = person.Email,
                     FirstName = person.FirstName,
-                    IsActive = person.IsActive,
-                    IsFrozen = person.IsFrozen,
                     LastName = person.LastName,
                     LegalCapacity = person.LegalCapacity,
                     MiddleName = person.MiddleName,

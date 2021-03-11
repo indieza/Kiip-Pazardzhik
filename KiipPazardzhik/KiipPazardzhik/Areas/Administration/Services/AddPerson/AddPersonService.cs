@@ -34,13 +34,16 @@ namespace KiipPazardzhik.Areas.Administration.Services.AddPerson
                 RegisterNumber = model.RegisterNumber,
                 Section = model.Section,
                 TechnologistKind = model.TechnologistKind,
-                IsActive = model.IsActive,
-                IsFrozen = model.IsFrozen,
                 TechnicalControl = model.TechnicalControl,
                 Position = model.Position,
             });
 
             await this.db.SaveChangesAsync();
+        }
+
+        public ICollection<string> GetAllLegalCapacities()
+        {
+            return this.db.People.Select(x => x.LegalCapacity).Distinct().ToList();
         }
 
         public ICollection<string> GetAllPosition()

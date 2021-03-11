@@ -21,6 +21,9 @@ namespace KiipPazardzhik.Areas.Administration.ViewModels.EditPerson.ViewModels
         public ICollection<string> AllPositions { get; set; } =
             new HashSet<string>();
 
+        public ICollection<string> AllLegalCapacities { get; set; } =
+            new HashSet<string>();
+
         public ICollection<string> AllTechnicalControls { get; set; } =
             new HashSet<string>();
     }

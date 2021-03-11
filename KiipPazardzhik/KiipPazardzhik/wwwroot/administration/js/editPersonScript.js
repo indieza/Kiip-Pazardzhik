@@ -23,8 +23,6 @@
             $("#legalCapacity").val(data.legalCapacity);
             $("#phone").val(data.phone);
             $("#email").val(data.email);
-            $("#isActive").val(data.isActive);
-            $("#isFrozen").val(data.isFrozen);
             $("#position").val(data.position);
             $("#technicalControl").val(data.technicalControl);
             $("#technologistKind").val(data.technologistKind);

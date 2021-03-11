@@ -53,8 +53,6 @@ namespace KiipPazardzhik.Areas.Administration.Services.AddPeople
                             Phone = worksheet.Cells[row, 9].Value?.ToString(),
                             Email = worksheet.Cells[row, 10].Value?.ToString(),
                             TechnicalControl = worksheet.Cells[row, 11].Value?.ToString(),
-                            IsActive = worksheet.Cells[row, 12].Value?.ToString() == "Да",
-                            IsFrozen = worksheet.Cells[row, 13].Value?.ToString() == "Да",
                         };
 
                         if (IsValid(person))
@@ -72,8 +70,6 @@ namespace KiipPazardzhik.Areas.Administration.Services.AddPeople
                                 Phone = person.Phone,
                                 Email = person.Email,
                                 TechnicalControl = person.TechnicalControl,
-                                IsActive = person.IsActive,
-                                IsFrozen = person.IsFrozen,
                             });
 
                             await this.db.SaveChangesAsync();
@@ -101,20 +97,6 @@ namespace KiipPazardzhik.Areas.Administration.Services.AddPeople
                 workSheet.Cells[1, 9].Value = "Телефон";
                 workSheet.Cells[1, 10].Value = "Мейл";
                 workSheet.Cells[1, 11].Value = "Технически контрол";
-
-                workSheet.Cells[1, 12].Value = "Активен";
-                var activeValidation = workSheet.DataValidations.AddListValidation("L2");
-                activeValidation.AllowBlank = false;
-                activeValidation.ShowErrorMessage = true;
-                activeValidation.Formula.Values.Add("Да");
-                activeValidation.Formula.Values.Add("Не");
-
-                workSheet.Cells[1, 13].Value = "Замразен";
-                var frozenValidation = workSheet.DataValidations.AddListValidation("M2");
-                frozenValidation.AllowBlank = false;
-                frozenValidation.ShowErrorMessage = true;
-                frozenValidation.Formula.Values.Add("Да");
-                frozenValidation.Formula.Values.Add("Не");
                 package.Save();
             }
 

@@ -32,9 +32,5 @@ namespace KiipPazardzhik.ViewModels.Website.ViewModels
         public string Section { get; set; }
 
         public string LegalCapacity { get; set; }
-
-        public bool IsFrozen { get; set; }
-
-        public bool IsActive { get; set; }
     }
 }

@@ -28,9 +28,6 @@
         <span class="freeFilterSpan" onclick="changeVisibility('ЗАМРАЗЕН', this)">
             ЗАМРАЗЕНО ЧЛЕНСТВО
         </span>
-        <span class="freeFilterSpan">
-            ОТПАДНАЛИ
-        </span>
     </div>
     <br />
     <div class="row">
@@ -49,8 +46,6 @@
                         <th scope="col">Технически контрол</th>
 
                     }
-                    <th style="display: none" scope="col">Активен</th>
-                    <th style="display: none" scope="col">Замразен</th>
                 </tr>
             </thead>
             <tbody>
@@ -68,8 +63,6 @@
                         {
                             <td>@person.TechnicalControl</td>
                         }
-                        <td style="display: none">@(person.IsActive ? "Да" : "Не")</td>
-                        <td style="display: none">@(person.IsFrozen ? "Да" : "Не")</td>
                     </tr>
                 }
             </tbody>

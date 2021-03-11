@@ -19,6 +19,9 @@ namespace KiipPazardzhik.Areas.Administration.ViewModels.AddPerson.ViewModels
         public ICollection<string> AllTechnicalControls { get; set; } =
             new HashSet<string>();
 
+        public ICollection<string> AllLegalCapacities { get; set; } =
+            new HashSet<string>();
+
         public AddPersonInputModel AddPersonInputModel { get; set; }
     }
 }

@@ -33,6 +33,7 @@ namespace KiipPazardzhik.Areas.Administration.Controllers
                 AllSections = this.addPersonService.GetAllSections(),
                 AllPositions = this.addPersonService.GetAllPosition(),
                 AllTechnicalControls = this.addPersonService.GetAllTechnicalControls(),
+                AllLegalCapacities = this.addPersonService.GetAllLegalCapacities(),
             };
 
             return this.View(model);

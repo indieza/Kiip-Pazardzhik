@@ -63,13 +63,5 @@ namespace KiipPazardzhik.Areas.Administration.ViewModels.EditPerson.InputModels
         [MaxLength(20)]
         [Display(Name = "Правоспособност")]
         public string LegalCapacity { get; set; }
-
-        [Required(ErrorMessage = "Полето е задължително!")]
-        [Display(Name = "Замразен")]
-        public bool IsFrozen { get; set; }
-
-        [Required(ErrorMessage = "Полето е задължително!")]
-        [Display(Name = "Активен")]
-        public bool IsActive { get; set; }
     }
 }

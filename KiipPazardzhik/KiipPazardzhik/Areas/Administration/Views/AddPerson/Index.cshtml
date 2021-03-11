@@ -69,7 +69,13 @@
         </div>
         <div class="form-group col-lg-4">
             <label asp-for="@this.Model.AddPersonInputModel.LegalCapacity"></label>
-            <input class="form-control" type="text" asp-for="@this.Model.AddPersonInputModel.LegalCapacity" autocomplete="off" />
+            <input list="legalCapacities" class="form-control" type="text" asp-for="@this.Model.AddPersonInputModel.LegalCapacity" autocomplete="off" />
+            <datalist id="legalCapacities">
+                @foreach (var currentLegalCapacity in this.Model.AllLegalCapacities)
+                {
+                    <option>@currentLegalCapacity</option>
+                }
+            </datalist>
             <span asp-validation-for="@Model.AddPersonInputModel.LegalCapacity" class="text-danger"></span>
         </div>
         <div class="form-group col-lg-4">
@@ -88,26 +94,6 @@
             <label asp-for="@this.Model.AddPersonInputModel.Email"></label>
             <input class="form-control" type="text" asp-for="@this.Model.AddPersonInputModel.Email" autocomplete="off" />
             <span asp-validation-for="@Model.AddPersonInputModel.Email" class="text-danger"></span>
-        </div>
-    </div>
-    <div class="row">
-        <div class="form-group col-lg-6">
-            <label asp-for="@this.Model.AddPersonInputModel.IsActive"></label>
-            <select class="form-control" asp-for="@this.Model.AddPersonInputModel.IsActive">
-                <option value="" disabled selected>Избери...</option>
-                <option value="@true">Да</option>
-                <option value="@false">Не</option>
-            </select>
-            <span asp-validation-for="@this.Model.AddPersonInputModel.IsActive" class="text-danger"></span>
-        </div>
-        <div class="form-group col-lg-6">
-            <label asp-for="@this.Model.AddPersonInputModel.IsFrozen"></label>
-            <select class="form-control" asp-for="@this.Model.AddPersonInputModel.IsFrozen">
-                <option value="" disabled selected>Избери...</option>
-                <option value="@true">Да</option>
-                <option value="@false">Не</option>
-            </select>
-            <span asp-validation-for="@this.Model.AddPersonInputModel.IsFrozen" class="text-danger"></span>
         </div>
     </div>
     <div class="row">

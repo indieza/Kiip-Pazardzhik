@@ -16,5 +16,6 @@ namespace KiipPazardzhik.Areas.Administration.Services.AddPerson
         ICollection<string> GetAllSections();
         ICollection<string> GetAllPosition();
         ICollection<string> GetAllTechnicalControls();
+        ICollection<string> GetAllLegalCapacities();
     }
 }
