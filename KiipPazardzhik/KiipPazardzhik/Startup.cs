@@ -12,10 +12,12 @@ namespace KiipPazardzhik
     using KiipPazardzhik.Areas.Administration.Services.AddNews;
     using KiipPazardzhik.Areas.Administration.Services.AddPeople;
     using KiipPazardzhik.Areas.Administration.Services.AddPerson;
+    using KiipPazardzhik.Areas.Administration.Services.AddRegionalCollege;
     using KiipPazardzhik.Areas.Administration.Services.Dashboard;
     using KiipPazardzhik.Areas.Administration.Services.DeleteDocument;
     using KiipPazardzhik.Areas.Administration.Services.DeleteNews;
     using KiipPazardzhik.Areas.Administration.Services.DeletePerson;
+    using KiipPazardzhik.Areas.Administration.Services.DeleteRegionalCollege;
     using KiipPazardzhik.Areas.Administration.Services.EditNews;
     using KiipPazardzhik.Areas.Administration.Services.EditPerson;
     using KiipPazardzhik.Data;
@@ -108,6 +110,8 @@ namespace KiipPazardzhik
             services.AddTransient<IDeleteDocumentService, DeleteDocumentService>();
             services.AddTransient<IEditNewsService, EditNewsService>();
             services.AddTransient<IAddPeopleService, AddPeopleService>();
+            services.AddTransient<IAddRegionalCollegeService, AddRegionalCollegeService>();
+            services.AddTransient<IDeleteRegionalCollegeService, DeleteRegionalCollegeService>();
 
             // Register OfficeOpenXml License
             ExcelPackage.LicenseContext = LicenseContext.NonCommercial;

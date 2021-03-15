@@ -47,5 +47,11 @@ namespace KiipPazardzhik.Constraints
 
         public const string SuccessfullyAddPeople =
            "Успешно добави хора.";
+
+        public const string SuccessfullyAddRegionalCollege =
+            "Успешно добави регионална колегия.";
+
+        public const string SuccessfullyDeleteRegionalCollege =
+            "Успешно изтри регионална колегия.";
     }
 }

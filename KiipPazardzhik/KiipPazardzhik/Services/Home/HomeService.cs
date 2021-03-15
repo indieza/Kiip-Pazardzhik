@@ -114,5 +114,15 @@ namespace KiipPazardzhik.Services.Home
 
             return result;
         }
+
+        public ICollection<RegionalCollegeViewModel> GetAllRegionalColleges()
+        {
+            return this.db.RegionalColleges.Select(x => new RegionalCollegeViewModel
+            {
+                Name = x.DisplayName,
+                Url = x.Url,
+            })
+            .ToList();
+        }
     }
 }

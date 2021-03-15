@@ -1,0 +1,24 @@
+﻿// <copyright file="AddRegionalCollegeInputModel.cs" company="Kiip Pazardzhik">
+// Copyright (c) Kiip Pazardzhik. All rights reserved.
+// </copyright>
+
+namespace KiipPazardzhik.Areas.Administration.ViewModels.AddRegionalCollege.InputModels
+{
+    using System;
+    using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
+    using System.Linq;
+    using System.Threading.Tasks;
+
+    public class AddRegionalCollegeInputModel
+    {
+        [Required(ErrorMessage = "Полето е задължително")]
+        [Display(Name = "Име")]
+        [MaxLength(20)]
+        public string Name { get; set; }
+
+        [Required(ErrorMessage = "Полето е задължително")]
+        [Display(Name = "Линк")]
+        public string Url { get; set; }
+    }
+}

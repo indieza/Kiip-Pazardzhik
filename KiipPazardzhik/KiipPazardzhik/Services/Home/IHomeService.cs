@@ -19,5 +19,6 @@ namespace KiipPazardzhik.Services.Home
         Task MakeYourselfAdmin(ApplicationUser currentUser);
 
         ICollection<SingleNewsViewModel> GetTopNews(int count);
+        ICollection<RegionalCollegeViewModel> GetAllRegionalColleges();
     }
 }

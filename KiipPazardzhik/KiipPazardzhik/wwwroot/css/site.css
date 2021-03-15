@@ -23,3 +23,9 @@
         background-color: dodgerblue;
         color: white;
     }
+
+.regionalCollegesList {
+    -webkit-column-count: 3;
+    -moz-column-count: 3;
+    column-count: 3;
+}

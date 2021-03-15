@@ -1,10 +1,12 @@
-﻿using System.Diagnostics;
+﻿using System.Collections.Generic;
+using System.Diagnostics;
 using System.Threading.Tasks;
 
 using KiipPazardzhik.Models;
 using KiipPazardzhik.Models.Users;
 using KiipPazardzhik.Services.Home;
 using KiipPazardzhik.ViewModels.Home.ViewModels;
+using KiipPazardzhik.ViewModels.Website.ViewModels;
 
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
@@ -52,10 +54,12 @@ namespace KiipPazardzhik.Controllers
             return this.RedirectToAction("Index", "Home");
         }
 
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
+        [HttpGet]
+        public IActionResult GetAllRegionalColleges()
         {
-            return this.View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? this.HttpContext.TraceIdentifier });
+            ICollection<RegionalCollegeViewModel> allRegionalColleges =
+                this.homeServices.GetAllRegionalColleges();
+            return new JsonResult(allRegionalColleges);
         }
     }
 }
