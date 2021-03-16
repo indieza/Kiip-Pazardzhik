@@ -12,7 +12,6 @@ namespace KiipPazardzhik.Areas.Administration.Controllers
     using KiipPazardzhik.Areas.Administration.Services.AddInfromation;
     using KiipPazardzhik.Areas.Administration.Services.EditInformation;
     using KiipPazardzhik.Areas.Administration.ViewModels.Information.InputModels;
-    using KiipPazardzhik.Areas.Administration.ViewModels.Information.ViewModels;
     using KiipPazardzhik.Constraints;
 
     using Microsoft.AspNetCore.Authorization;
@@ -23,14 +22,10 @@ namespace KiipPazardzhik.Areas.Administration.Controllers
     public class AddInformationController : Controller
     {
         private readonly IAddInformationService addInformationService;
-        private readonly IEditInformationService editInformationService;
 
-        public AddInformationController(
-            IAddInformationService addInformationService,
-            IEditInformationService editInformationService)
+        public AddInformationController(IAddInformationService addInformationService)
         {
             this.addInformationService = addInformationService;
-            this.editInformationService = editInformationService;
         }
 
         public IActionResult Index()

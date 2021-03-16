@@ -10,11 +10,11 @@ namespace KiipPazardzhik.Areas.Administration.Services.EditInformation
     using System.Threading.Tasks;
 
     using KiipPazardzhik.Areas.Administration.ViewModels.Information.InputModels;
-    using KiipPazardzhik.Areas.Administration.ViewModels.Information.ViewModels;
 
     public interface IEditInformationService
     {
         EditInformationInputModel GetInformation();
+
         Task EditInformation(EditInformationInputModel model);
     }
 }

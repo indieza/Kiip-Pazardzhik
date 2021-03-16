@@ -1,4 +1,8 @@
-﻿namespace KiipPazardzhik.Areas.Administration.ViewModels.Information.InputModels
+﻿// <copyright file="AddDesignOfficeInputModel.cs" company="Kiip Pazardzhik">
+// Copyright (c) Kiip Pazardzhik. All rights reserved.
+// </copyright>
+
+namespace KiipPazardzhik.Areas.Administration.ViewModels.DesignOffice.InputModels
 {
     using System;
     using System.Collections.Generic;
@@ -8,7 +12,7 @@
 
     using Ganss.XSS;
 
-    public class AddInformationInputModel
+    public class AddDesignOfficeInputModel
     {
         [Required]
         [Display(Name = "Съдържание")]

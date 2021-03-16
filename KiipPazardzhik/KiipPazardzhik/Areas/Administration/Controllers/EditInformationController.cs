@@ -12,7 +12,6 @@ namespace KiipPazardzhik.Areas.Administration.Controllers
     using KiipPazardzhik.Areas.Administration.Services.AddInfromation;
     using KiipPazardzhik.Areas.Administration.Services.EditInformation;
     using KiipPazardzhik.Areas.Administration.ViewModels.Information.InputModels;
-    using KiipPazardzhik.Areas.Administration.ViewModels.Information.ViewModels;
     using KiipPazardzhik.Constraints;
 
     using Microsoft.AspNetCore.Authorization;
