@@ -23,6 +23,10 @@ namespace KiipPazardzhik.Data
 
         public DbSet<Document> Documents { get; set; }
 
+        public DbSet<Information> Information { get; set; }
+
+        public DbSet<DesignOffice> DesignOffices { get; set; }
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             base.OnConfiguring(optionsBuilder);

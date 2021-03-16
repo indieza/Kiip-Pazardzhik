@@ -117,11 +117,13 @@ namespace KiipPazardzhik.Services.Home
 
         public ICollection<RegionalCollegeViewModel> GetAllRegionalColleges()
         {
-            return this.db.RegionalColleges.Select(x => new RegionalCollegeViewModel
-            {
-                Name = x.DisplayName,
-                Url = x.Url,
-            })
+            return this.db.RegionalColleges
+                .Select(x => new RegionalCollegeViewModel
+                {
+                    Name = x.DisplayName,
+                    Url = x.Url,
+                })
+            .OrderBy(x => x.Name)
             .ToList();
         }
     }

@@ -1,0 +1,20 @@
+﻿// <copyright file="IEditInformationService.cs" company="Kiip Pazardzhik">
+// Copyright (c) Kiip Pazardzhik. All rights reserved.
+// </copyright>
+
+namespace KiipPazardzhik.Areas.Administration.Services.EditInformation
+{
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Threading.Tasks;
+
+    using KiipPazardzhik.Areas.Administration.ViewModels.Information.InputModels;
+    using KiipPazardzhik.Areas.Administration.ViewModels.Information.ViewModels;
+
+    public interface IEditInformationService
+    {
+        EditInformationInputModel GetInformation();
+        Task EditInformation(EditInformationInputModel model);
+    }
+}

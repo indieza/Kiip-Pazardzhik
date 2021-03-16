@@ -53,5 +53,11 @@ namespace KiipPazardzhik.Constraints
 
         public const string SuccessfullyDeleteRegionalCollege =
             "Успешно изтри регионална колегия.";
+
+        public const string SuccessfullyAddInformation =
+            "Успешно добави информация.";
+
+        public const string SuccessfullyEditInformation =
+            "Успешно промени информация.";
     }
 }
