@@ -65,6 +65,7 @@ namespace KiipPazardzhik
                 options.SignIn.RequireConfirmedAccount = true;
                 options.Password.RequireUppercase = false;
                 options.Password.RequiredLength = 6;
+                options.SignIn.RequireConfirmedEmail = false;
                 options.Password.RequiredUniqueChars = 0;
                 options.Password.RequireNonAlphanumeric = false;
                 options.Password.RequireLowercase = false;

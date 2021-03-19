@@ -81,12 +81,12 @@ namespace KiipPazardzhik.Areas.Identity.Pages.Account
 
                     if (this.userManager.Options.SignIn.RequireConfirmedAccount)
                     {
-                        return this.RedirectToAction("Index", "Home");
+                        return this.Redirect("/");
                     }
                     else
                     {
                         await this.signInManager.SignInAsync(user, isPersistent: false);
-                        return this.LocalRedirect(returnUrl);
+                        return this.Redirect("/");
                     }
                 }
 
@@ -96,7 +96,7 @@ namespace KiipPazardzhik.Areas.Identity.Pages.Account
                 }
             }
 
-            return this.Page();
+            return this.Redirect("/");
         }
     }
 }
