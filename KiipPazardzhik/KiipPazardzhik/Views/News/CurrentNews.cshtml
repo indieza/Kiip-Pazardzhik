@@ -22,18 +22,18 @@
         </div>
         <div class="row">
             <p>
-                Създадена на: @this.Model.CreatedOn.ToLocalTime().ToString("dd/mm/yyyy")
+                Създадена на: @this.Model.CreatedOn.ToLocalTime().ToString("dd/MM/yyyy")
             </p>
         </div>
         <br />
-        <div class="row">
+        <div>
             @Html.Raw(this.Model.Description)
         </div>
         @foreach (var file in this.Model.Files)
         {
             <div class="row">
                 <p>
-                    <a href="@file.Url" target="_blank">
+                    <a asp-area="" asp-controller="News" asp-action="GetDocument" asp-route-id="@file.Id" target="_blank">
                         @file.Name
                     </a>
                 </p>

@@ -5,6 +5,7 @@
 namespace KiipPazardzhik.Areas.Administration.Services.EditNews
 {
     using System.Collections.Generic;
+    using System.IO;
     using System.Linq;
     using System.Text.RegularExpressions;
     using System.Threading.Tasks;
@@ -17,17 +18,18 @@ namespace KiipPazardzhik.Areas.Administration.Services.EditNews
     using KiipPazardzhik.Models;
     using KiipPazardzhik.Services.Cloud;
 
+    using Microsoft.AspNetCore.Hosting;
     using Microsoft.EntityFrameworkCore;
 
     public class EditNewsService : IEditNewsService
     {
         private readonly ApplicationDbContext db;
-        private readonly Cloudinary cloudinary;
+        private readonly IWebHostEnvironment environment;
 
-        public EditNewsService(ApplicationDbContext db, Cloudinary cloudinary)
+        public EditNewsService(ApplicationDbContext db, IWebHostEnvironment environment)
         {
             this.db = db;
-            this.cloudinary = cloudinary;
+            this.environment = environment;
         }
 
         public async Task EditNews(EditNewsInputModel model)
@@ -35,29 +37,41 @@ namespace KiipPazardzhik.Areas.Administration.Services.EditNews
             var news = await this.db.News.FirstOrDefaultAsync(x => x.Id == model.Id);
             var files = this.db.WebsiteFiles.Where(x => x.NewsId == model.Id).ToList();
 
-            if (files.Count > 0)
+            if (model.WebsiteFiles.Count > 0)
             {
                 foreach (var file in files)
                 {
-                    ApplicationCloudinary.DeleteImage(this.cloudinary, $"{news.Id}-{file.Name}");
+                    var document = await this.db.WebsiteFiles.FirstOrDefaultAsync(x => x.Id == file.Id);
+                    File.Delete(document.Url);
                 }
 
                 this.db.WebsiteFiles.RemoveRange(files);
+                await this.db.SaveChangesAsync();
             }
+
+            string wwwPath = this.environment.WebRootPath;
+            string path = Path.Combine(wwwPath, $"News\\{news.Id}");
 
             foreach (var file in model.WebsiteFiles)
             {
-                var fileUrl = await ApplicationCloudinary.UploadImage(
-                       this.cloudinary,
-                       file,
-                       $"{news.Id}-{file.FileName}");
-
-                this.db.WebsiteFiles.Add(new WebsiteFile
+                string fileName = Path.GetFileName(file.FileName);
+                var targetDocument =
+                    await this.db.WebsiteFiles
+                        .FirstOrDefaultAsync(
+                            x => x.Name == file.FileName && x.NewsId == news.Id);
+                if (targetDocument == null)
                 {
-                    Name = file.FileName,
-                    Url = fileUrl,
-                    NewsId = news.Id,
-                });
+                    using (FileStream stream = new FileStream(Path.Combine(path, fileName), FileMode.Create))
+                    {
+                        file.CopyTo(stream);
+                        this.db.WebsiteFiles.Add(new WebsiteFile
+                        {
+                            Name = file.FileName,
+                            Url = Path.Combine(wwwPath, $"News\\{news.Id}\\") + fileName,
+                            NewsId = news.Id,
+                        });
+                    }
+                }
             }
 
             var contentWithoutTags = Regex

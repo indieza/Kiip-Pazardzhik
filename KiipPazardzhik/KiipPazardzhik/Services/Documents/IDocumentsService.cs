@@ -11,8 +11,12 @@ namespace KiipPazardzhik.Services.Documents
 
     using KiipPazardzhik.ViewModels.Website.ViewModels;
 
+    using Microsoft.AspNetCore.Mvc;
+
     public interface IDocumentsService
     {
         Dictionary<string, List<DocumentViewModel>> GetAllDocuments();
+
+        Task<Tuple<byte[], string>> GetFile(string id);
     }
 }

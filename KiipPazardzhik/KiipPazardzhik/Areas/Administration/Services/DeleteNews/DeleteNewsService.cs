@@ -5,6 +5,7 @@
 namespace KiipPazardzhik.Areas.Administration.Services.DeleteNews
 {
     using System.Collections.Generic;
+    using System.IO;
     using System.Linq;
     using System.Threading.Tasks;
 
@@ -15,30 +16,34 @@ namespace KiipPazardzhik.Areas.Administration.Services.DeleteNews
     using KiipPazardzhik.Data;
     using KiipPazardzhik.Services.Cloud;
 
+    using Microsoft.AspNetCore.Hosting;
     using Microsoft.EntityFrameworkCore;
 
     public class DeleteNewsService : IDeleteNewsService
     {
         private readonly ApplicationDbContext db;
-        private readonly Cloudinary cloudinary;
+        private readonly IWebHostEnvironment environment;
 
-        public DeleteNewsService(ApplicationDbContext db, Cloudinary cloudinary)
+        public DeleteNewsService(ApplicationDbContext db, IWebHostEnvironment environment)
         {
             this.db = db;
-            this.cloudinary = cloudinary;
+            this.environment = environment;
         }
 
         public async Task DeleteNews(DeleteNewsInputModel model)
         {
             var allFiles = this.db.WebsiteFiles.Where(x => x.NewsId == model.Id).ToList();
 
-            foreach (var file in allFiles)
-            {
-                ApplicationCloudinary.DeleteImage(this.cloudinary, $"{model.Id}-{file.Name}");
-            }
-
             this.db.WebsiteFiles.RemoveRange(allFiles);
             var news = await this.db.News.FirstOrDefaultAsync(x => x.Id == model.Id);
+            string wwwPath = this.environment.WebRootPath;
+            string path = Path.Combine(wwwPath, $"News\\{news.Id}");
+
+            if (Directory.Exists(path))
+            {
+                Directory.Delete(path, true);
+            }
+
             this.db.News.Remove(news);
             await this.db.SaveChangesAsync();
         }

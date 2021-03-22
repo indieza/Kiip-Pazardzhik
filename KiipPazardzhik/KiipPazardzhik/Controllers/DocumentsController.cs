@@ -24,5 +24,11 @@
             Dictionary<string, List<DocumentViewModel>> allDocuments = this.documentsService.GetAllDocuments();
             return this.View(allDocuments);
         }
+
+        public async Task<FileResult> GetDocument(string id)
+        {
+            var s = await this.documentsService.GetFile(id);
+            return this.File(s.Item1, "application/octet-stream", s.Item2);
+        }
     }
 }

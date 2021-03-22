@@ -48,8 +48,12 @@ namespace KiipPazardzhik.Areas.Administration.Services.Dashboard
         public async Task DeleteUser(string id)
         {
             var user = await this.db.Users.FirstOrDefaultAsync(x => x.Id == id);
-            this.db.Users.Remove(user);
-            await this.db.SaveChangesAsync();
+
+            if (!await this.userManager.IsInRoleAsync(user, GlobalConstants.AdministratorRole))
+            {
+                this.db.Users.Remove(user);
+                await this.db.SaveChangesAsync();
+            }
         }
 
         public async Task<int> GetAllAdminsCount()
@@ -104,10 +108,12 @@ namespace KiipPazardzhik.Areas.Administration.Services.Dashboard
 
             foreach (var user in allUsers)
             {
-                if (!await this.userManager.IsInRoleAsync(user, GlobalConstants.AdministratorRole))
-                {
-                    result.Add(user);
-                }
+                //if (!await this.userManager.IsInRoleAsync(user, GlobalConstants.AdministratorRole))
+                //{
+                //    result.Add(user);
+                //}
+
+                result.Add(user);
             }
 
             return result;

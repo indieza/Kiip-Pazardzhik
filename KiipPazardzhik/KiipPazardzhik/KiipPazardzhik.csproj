@@ -40,6 +40,7 @@
     <Folder Include="Areas\Administration\ViewModels\AddRegionalCollege\ViewModels\" />
     <Folder Include="Areas\Administration\ViewModels\DesignOffice\ViewModels\" />
     <Folder Include="Areas\Administration\ViewModels\Information\ViewModels\" />
+    <Folder Include="ViewModels\Contacts\ViewModels\" />
     <Folder Include="ViewModels\Home\InputModels\" />
     <Folder Include="ViewModels\News\InputModels\" />
     <Folder Include="ViewModels\Register\InputModels\" />

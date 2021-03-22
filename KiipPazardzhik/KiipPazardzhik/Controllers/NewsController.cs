@@ -38,5 +38,11 @@ namespace KiipPazardzhik.Controllers
             SingleNewsViewModel model = await this.newsService.GetNewsById(id);
             return this.View(model);
         }
+
+        public async Task<FileResult> GetDocument(string id)
+        {
+            var s = await this.newsService.GetFile(id);
+            return this.File(s.Item1, "application/octet-stream", s.Item2);
+        }
     }
 }

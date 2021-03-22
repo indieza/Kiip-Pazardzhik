@@ -240,7 +240,7 @@ header {
     position: absolute;
     z-index: 99999;
     width: 100%;
-    background-color: transparent !important;
+    background-color: white !important;
     height: 80px;
     -webkit-transition: all 0.3s ease-in-out 0s;
     -moz-transition: all 0.3s ease-in-out 0s;
@@ -250,6 +250,7 @@ header {
 
     header .navbar {
         padding: 20px 0px;
+        background-color: white;
     }
 
 .background-header .navbar {
@@ -318,7 +319,7 @@ header {
     font-size: 15px;
     font-weight: 300;
     letter-spacing: 0.2px;
-    color: #fff;
+    color: black;
     transition: all 0.5s;
     margin-top: 5px;
 }
@@ -1144,10 +1145,12 @@ footer {
 
     .page-heading h1 {
         text-transform: capitalize;
-        font-size: 36px;
-        font-weight: 700;
+        font-size: 70px;
+        font-weight: bolder;
+        color: black;
         letter-spacing: 2px;
         margin-bottom: 18px;
+        -webkit-text-stroke: 2px white;
     }
 
     .page-heading span {

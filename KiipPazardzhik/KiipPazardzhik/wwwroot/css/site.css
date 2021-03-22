@@ -1,4 +1,5 @@
 ﻿.filterSpan {
+    cursor: pointer;
     border-radius: 20px;
     background-color: dodgerblue;
     padding: 10px;
@@ -11,6 +12,7 @@
 }
 
 .freeFilterSpan {
+    cursor: pointer;
     border-radius: 20px;
     padding: 10px;
     margin-right: 15px;
@@ -29,3 +31,24 @@
     -moz-column-count: 3;
     column-count: 3;
 }
+
+#myBtn {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 30px;
+    z-index: 99;
+    border: none;
+    outline: none;
+    background-color: #a4c639;
+    color: white;
+    cursor: pointer;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    font-size: 18px;
+}
+
+    #myBtn:hover {
+        background-color: greenyellow;
+    }

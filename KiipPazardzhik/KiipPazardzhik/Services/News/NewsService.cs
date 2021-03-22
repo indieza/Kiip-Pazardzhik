@@ -6,6 +6,7 @@ namespace KiipPazardzhik.Services.News
 {
     using System;
     using System.Collections.Generic;
+    using System.IO;
     using System.Linq;
     using System.Threading.Tasks;
 
@@ -55,6 +56,14 @@ namespace KiipPazardzhik.Services.News
             }
 
             return result;
+        }
+
+        public async Task<Tuple<byte[], string>> GetFile(string id)
+        {
+            var targetFile = await this.db.WebsiteFiles.FirstOrDefaultAsync(x => x.Id == id);
+            string fileName = Path.GetFileName(targetFile.Url);
+            byte[] bytes = File.ReadAllBytes(targetFile.Url);
+            return Tuple.Create(bytes, fileName);
         }
 
         public async Task<SingleNewsViewModel> GetNewsById(string id)

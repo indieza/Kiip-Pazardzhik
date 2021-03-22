@@ -5,6 +5,7 @@
 namespace KiipPazardzhik.Areas.Administration.Services.DeleteDocument
 {
     using System.Collections.Generic;
+    using System.IO;
     using System.Linq;
     using System.Threading.Tasks;
 
@@ -31,7 +32,7 @@ namespace KiipPazardzhik.Areas.Administration.Services.DeleteDocument
         public async Task DeleteDocument(DeleteDocumentInputModel model)
         {
             var document = await this.db.Documents.FirstOrDefaultAsync(x => x.Id == model.Id);
-            ApplicationCloudinary.DeleteImage(this.cloudinary, $"{document.Id}-{document.Name}");
+            File.Delete(document.Url);
             this.db.Documents.Remove(document);
             await this.db.SaveChangesAsync();
         }

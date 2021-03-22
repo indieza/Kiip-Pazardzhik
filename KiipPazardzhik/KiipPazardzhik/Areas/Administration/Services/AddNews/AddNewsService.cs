@@ -5,6 +5,7 @@
 namespace KiipPazardzhik.Areas.Administration.Services.AddNews
 {
     using System;
+    using System.IO;
     using System.Text.RegularExpressions;
     using System.Threading.Tasks;
 
@@ -15,15 +16,18 @@ namespace KiipPazardzhik.Areas.Administration.Services.AddNews
     using KiipPazardzhik.Models;
     using KiipPazardzhik.Services.Cloud;
 
+    using Microsoft.AspNetCore.Hosting;
+    using Microsoft.EntityFrameworkCore;
+
     public class AddNewsService : IAddNewsService
     {
         private readonly ApplicationDbContext db;
-        private readonly Cloudinary cloudinary;
+        private readonly IWebHostEnvironment environment;
 
-        public AddNewsService(ApplicationDbContext db, Cloudinary cloudinary)
+        public AddNewsService(ApplicationDbContext db, IWebHostEnvironment environment)
         {
             this.db = db;
-            this.cloudinary = cloudinary;
+            this.environment = environment;
         }
 
         public async Task AddNews(AddNewsInputModel model)
@@ -41,19 +45,34 @@ namespace KiipPazardzhik.Areas.Administration.Services.AddNews
                 contentWithoutTags.Substring(0, 250),
             };
 
+            string wwwPath = this.environment.WebRootPath;
+
+            string path = Path.Combine(wwwPath, $"News\\{news.Id}");
+            if (!Directory.Exists(path))
+            {
+                Directory.CreateDirectory(path);
+            }
+
             foreach (var file in model.WebsiteFiles)
             {
-                var fileUrl = await ApplicationCloudinary.UploadImage(
-                       this.cloudinary,
-                       file,
-                       $"{news.Id}-{file.FileName}");
-
-                news.WebsiteFiles.Add(new WebsiteFile
+                string fileName = Path.GetFileName(file.FileName);
+                var targetDocument =
+                    await this.db.WebsiteFiles
+                        .FirstOrDefaultAsync(
+                            x => x.Name == file.FileName && x.NewsId == news.Id);
+                if (targetDocument == null)
                 {
-                    Name = file.FileName,
-                    Url = fileUrl,
-                    NewsId = news.Id,
-                });
+                    using (FileStream stream = new FileStream(Path.Combine(path, fileName), FileMode.Create))
+                    {
+                        file.CopyTo(stream);
+                        this.db.WebsiteFiles.Add(new WebsiteFile
+                        {
+                            Name = file.FileName,
+                            Url = Path.Combine(wwwPath, $"News\\{news.Id}\\") + fileName,
+                            NewsId = news.Id,
+                        });
+                    }
+                }
             }
 
             this.db.News.Add(news);

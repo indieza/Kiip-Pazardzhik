@@ -27,6 +27,7 @@ namespace KiipPazardzhik
     using KiipPazardzhik.Data;
     using KiipPazardzhik.Models.Users;
     using KiipPazardzhik.Services.Cloud;
+    using KiipPazardzhik.Services.Contact;
     using KiipPazardzhik.Services.DesignOffices;
     using KiipPazardzhik.Services.Documents;
     using KiipPazardzhik.Services.Home;
@@ -107,6 +108,7 @@ namespace KiipPazardzhik
             services.AddTransient<IDocumentsService, DocumentsService>();
             services.AddTransient<IInformationService, InformationService>();
             services.AddTransient<IDesignOfficesService, DesignOfficesService>();
+            services.AddTransient<IContactService, ContactService>();
 
             // Register Administration Services
             services.AddTransient<IDashboardService, DashboardService>();

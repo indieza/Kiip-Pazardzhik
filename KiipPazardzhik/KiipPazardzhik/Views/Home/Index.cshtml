@@ -12,7 +12,7 @@
             <div class="item item-1">
                 <div class="img-fill" style="background-image: url('../../Images/Office.jpg')">
                     <div class="text-content">
-                        <h6>@news.CreatedOn.ToLocalTime().ToString("dd-mm-yyyy")</h6>
+                        <h6>@news.CreatedOn.ToLocalTime().ToString("dd-MM-yyyy")</h6>
                         <h4>@news.Title</h4>
                         <p>@news.ShortDescription</p>
                         <a asp-area=""
@@ -69,7 +69,6 @@
             <div class="col-md-12">
                 <div class="section-heading">
                     <h2>Нашите последни <em>3 новини</em></h2>
-                    <span>Важна информация, която е необходима на всеки от вас</span>
                 </div>
             </div>
             @foreach (var news in this.Model.TopThreeNews)
@@ -77,7 +76,7 @@
 
                 <div class="col-md-4">
                     <div class="service-item">
-                        <img src="assets/images/service_02.jpg" alt="">
+                        <img src="assets/images/page-heading-bg.jpg" alt="">
                         <div class="down-content">
                             <h4>@news.Title</h4>
                             <p>@news.ShortDescription</p>
