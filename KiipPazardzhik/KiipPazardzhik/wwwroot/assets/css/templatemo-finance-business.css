@@ -1408,7 +1408,7 @@ footer {
     .navbar .navbar-brand {
         position: absolute;
         left: 30px;
-        top: 10px;
+        top: -6px;
     }
 
     .navbar .navbar-brand {

@@ -37,11 +37,3 @@ $(document).ready(function () {
         }
     });
 });
-
-$(document).ready(function () {
-    let navs = document.querySelectorAll('.nav-item');
-    for (var nav of navs) {
-        nav.addEventListener('click', function () {
-        });
-    }
-}); 

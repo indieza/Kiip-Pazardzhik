@@ -21,3 +21,13 @@
         </div>
     </div>
 </div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+    <script>
+        $(document).ready(function () {
+            document.querySelectorAll('.nav-item')[2].classList.add("active");
+            document.querySelectorAll('.nav-item.active')[0].classList.remove("active");
+        });
+    </script>
+}

@@ -34,3 +34,13 @@
         <hr />
     }
 </div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+    <script>
+        $(document).ready(function () {
+            document.querySelectorAll('.nav-item')[5].classList.add("active");
+            document.querySelectorAll('.nav-item.active')[0].classList.remove("active");
+        });
+    </script>
+}
