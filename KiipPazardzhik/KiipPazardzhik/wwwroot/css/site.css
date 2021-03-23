@@ -49,6 +49,47 @@
     font-size: 18px;
 }
 
-    #myBtn:hover {
-        background-color: greenyellow;
+#myFacebook {
+    position: fixed;
+    bottom: 20px;
+    left: 30px;
+    z-index: 99;
+    border: none;
+    outline: none;
+    background-color: darkblue;
+    color: white;
+    cursor: pointer;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    font-size: 18px;
+}
+
+    #myFacebook i {
+        margin-top: 6px;
+        margin-left: 6px;
+        font-size: 30px;
+    }
+
+#myBtn:hover {
+    background-color: greenyellow;
+}
+
+.logo-content {
+    font-size: 11px;
+    top: -4px;
+    position: absolute;
+    left: 83px;
+    white-space: pre-line;
+    width: 134px;
+}
+
+@media (max-width: 992px) {
+    .logo-content {
+        font-size: 11px;
+        top: -26px;
+        position: absolute;
+        left: 83px;
+        white-space: pre-line;
+        width: 134px;
     }

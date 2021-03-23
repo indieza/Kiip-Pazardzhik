@@ -254,7 +254,7 @@ header {
     }
 
 .background-header .navbar {
-    padding: 0px 0px;
+    padding: 20px 0px;
 }
 
 .background-header {
@@ -345,7 +345,7 @@ header {
     border-radius: 0px;
     position: absolute;
     right: 30px;
-    top: 20px;
+    top: 4px;
 }
 
 .navbar .navbar-toggler-icon:after {
@@ -1407,8 +1407,8 @@ footer {
 @media (max-width: 992px) {
     .navbar .navbar-brand {
         position: absolute;
-        left: 30px;
-        top: -6px;
+        left: 20px;
+        top: -22px;
     }
 
     .navbar .navbar-brand {
@@ -1422,7 +1422,7 @@ footer {
     #navbarResponsive {
         z-index: 99999;
         position: absolute;
-        top: 80px;
+        top: 60px;
         left: 0;
         width: 100%;
         text-align: center;

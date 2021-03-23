@@ -29,10 +29,13 @@
 
     <header class="">
         <nav class="navbar navbar-expand-lg">
-            <div class="container">
+            <div class="container" style="position: relative">
                 <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">
                     <img style="width: 55px; height: 55px" src="~/Logo.png" />
                 </a>
+                <span class="logo-content">
+                    КАМАРА НА ИНЖЕНЕРИТЕ В ИНВЕСТИЦИОННОТО ПРОЕКТИРАНЕ
+                </span>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -79,6 +82,9 @@
     <button onclick="topFunction()" id="myBtn" title="Go to top">
         <i class="fas fa-chevron-up"></i>
     </button>
+    <a href="https://github.com/indieza" target="_blank" id="myFacebook" title="Go to top">
+        <i class="fab fa-facebook"></i>
+    </a>
 
     @RenderBody()
 
@@ -146,6 +152,10 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
+                    <p>
+                        Регионална колегия гр. Пазарджик
+                        4400 гр. Пазарджик ул. "Тодор Мумджие" № 6
+                    </p>
                     <p>
                         "Copyright" &copy; @DateTime.UtcNow.Year "KIIP Pazardzhik".
                     </p>
