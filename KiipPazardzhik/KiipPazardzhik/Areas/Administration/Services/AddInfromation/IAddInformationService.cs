@@ -4,9 +4,6 @@
 
 namespace KiipPazardzhik.Areas.Administration.Services.AddInfromation
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
     using System.Threading.Tasks;
 
     using KiipPazardzhik.Areas.Administration.ViewModels.Information.InputModels;
@@ -14,6 +11,7 @@ namespace KiipPazardzhik.Areas.Administration.Services.AddInfromation
     public interface IAddInformationService
     {
         bool HaveInformationAlready();
+
         Task AddInformation(AddInformationInputModel model);
     }
 }

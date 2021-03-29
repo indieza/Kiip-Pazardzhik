@@ -14,8 +14,11 @@ namespace KiipPazardzhik.Areas.Administration.Services.AddPerson
         Task AddPerson(AddPersonInputModel model);
 
         ICollection<string> GetAllSections();
+
         ICollection<string> GetAllPosition();
+
         ICollection<string> GetAllTechnicalControls();
+
         ICollection<string> GetAllLegalCapacities();
     }
 }

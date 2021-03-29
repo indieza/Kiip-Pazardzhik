@@ -4,7 +4,6 @@
 
 namespace KiipPazardzhik.ViewModels.Home.ViewModels
 {
-    using System.Collections;
     using System.Collections.Generic;
 
     using KiipPazardzhik.ViewModels.Website.ViewModels;

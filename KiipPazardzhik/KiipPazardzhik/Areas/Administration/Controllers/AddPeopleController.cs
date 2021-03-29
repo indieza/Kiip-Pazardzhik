@@ -4,10 +4,7 @@
 
 namespace KiipPazardzhik.Areas.Administration.Controllers
 {
-    using System;
-    using System.Collections.Generic;
     using System.IO;
-    using System.Linq;
     using System.Threading.Tasks;
 
     using KiipPazardzhik.Areas.Administration.Services.AddPeople;
@@ -16,8 +13,6 @@ namespace KiipPazardzhik.Areas.Administration.Controllers
 
     using Microsoft.AspNetCore.Authorization;
     using Microsoft.AspNetCore.Mvc;
-
-    using OfficeOpenXml;
 
     [Area(GlobalConstants.AdministrationArea)]
     [Authorize(Roles = GlobalConstants.AdministratorRole)]

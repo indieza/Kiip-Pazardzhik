@@ -4,13 +4,9 @@
 
 namespace KiipPazardzhik.Areas.Administration.Controllers
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
     using System.Threading.Tasks;
 
     using KiipPazardzhik.Areas.Administration.Services.AddInfromation;
-    using KiipPazardzhik.Areas.Administration.Services.EditInformation;
     using KiipPazardzhik.Areas.Administration.ViewModels.Information.InputModels;
     using KiipPazardzhik.Constraints;
 

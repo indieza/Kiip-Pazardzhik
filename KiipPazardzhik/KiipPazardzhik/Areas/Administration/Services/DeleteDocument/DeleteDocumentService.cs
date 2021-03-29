@@ -14,7 +14,6 @@ namespace KiipPazardzhik.Areas.Administration.Services.DeleteDocument
     using KiipPazardzhik.Areas.Administration.ViewModels.DeleteDocument.InputModels;
     using KiipPazardzhik.Areas.Administration.ViewModels.DeleteDocument.ViewModels;
     using KiipPazardzhik.Data;
-    using KiipPazardzhik.Services.Cloud;
 
     using Microsoft.EntityFrameworkCore;
 

@@ -7,16 +7,12 @@ namespace KiipPazardzhik.Areas.Administration.Services.AddDocument
     using System.IO;
     using System.Threading.Tasks;
 
-    using CloudinaryDotNet;
-
     using KiipPazardzhik.Areas.Administration.ViewModels.AddDocument.InputModels;
     using KiipPazardzhik.Data;
     using KiipPazardzhik.Models;
-    using KiipPazardzhik.Services.Cloud;
 
     using Microsoft.AspNetCore.Hosting;
     using Microsoft.EntityFrameworkCore;
-    using Microsoft.EntityFrameworkCore.Internal;
 
     public class AddDocumentService : IAddDocumentService
     {

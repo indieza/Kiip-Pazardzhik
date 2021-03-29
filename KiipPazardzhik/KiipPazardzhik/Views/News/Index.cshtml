@@ -4,7 +4,7 @@
 
 @model AllNewsViewModel
 
-<div class="page-heading header-text">
+<div class="page-heading header-text" style="background-image: url('../../Images/news.jpg')">
     <div class="container">
         <div class="row">
             <div class="col-md-12">
@@ -25,7 +25,7 @@
                     {
                         <div class="col-md-4">
                             <div class="service-item">
-                                <img src="assets/images/page-heading-bg.jpg" alt="">
+                                <img src="assets/images/news.jpg" alt="">
                                 <div class="down-content">
                                     <h4>@this.Model.AllNews.ElementAt(i + j).Title</h4>
                                     <p>@this.Model.AllNews.ElementAt(i + j).ShortDescription</p>

@@ -4,11 +4,6 @@
 
 namespace KiipPazardzhik.Services.Information
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Threading.Tasks;
-
     using KiipPazardzhik.ViewModels.Website.ViewModels;
 
     public interface IInformationService

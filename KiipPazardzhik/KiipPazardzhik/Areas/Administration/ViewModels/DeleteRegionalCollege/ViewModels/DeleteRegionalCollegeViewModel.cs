@@ -4,11 +4,6 @@
 
 namespace KiipPazardzhik.Areas.Administration.ViewModels.DeleteRegionalCollege.ViewModels
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Threading.Tasks;
-
     public class DeleteRegionalCollegeViewModel
     {
         public string Id { get; set; }

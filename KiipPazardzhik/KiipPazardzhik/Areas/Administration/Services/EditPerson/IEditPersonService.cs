@@ -23,6 +23,7 @@ namespace KiipPazardzhik.Areas.Administration.Services.EditPerson
         ICollection<string> GetAllPositions();
 
         ICollection<string> GetAllTechnicalControl();
+
         ICollection<string> GetAllLegalCapacities();
     }
 }

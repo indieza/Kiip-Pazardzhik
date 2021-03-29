@@ -10,7 +10,7 @@
         @foreach (var news in this.Model.TopFiveNews)
         {
             <div class="item item-1">
-                <div class="img-fill" style="background-image: url('../../Images/Office.jpg')">
+                <div class="img-fill" style="background-image: url('../../Images/news.jpg')">
                     <div class="text-content">
                         <h6>@news.CreatedOn.ToLocalTime().ToString("dd-MM-yyyy")</h6>
                         <h4>@news.Title</h4>
@@ -76,7 +76,7 @@
 
                 <div class="col-md-4">
                     <div class="service-item">
-                        <img src="assets/images/page-heading-bg.jpg" alt="">
+                        <img src="assets/images/news.jpg" alt="">
                         <div class="down-content">
                             <h4>@news.Title</h4>
                             <p>@news.ShortDescription</p>

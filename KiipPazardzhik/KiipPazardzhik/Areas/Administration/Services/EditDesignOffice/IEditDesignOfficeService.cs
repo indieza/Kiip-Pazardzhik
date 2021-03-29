@@ -4,9 +4,6 @@
 
 namespace KiipPazardzhik.Areas.Administration.Services.EditDesignOffice
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
     using System.Threading.Tasks;
 
     using KiipPazardzhik.Areas.Administration.ViewModels.DesignOffice.InputModels;

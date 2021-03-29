@@ -14,8 +14,6 @@ namespace KiipPazardzhik.Services.Documents
     using KiipPazardzhik.Data;
     using KiipPazardzhik.ViewModels.Website.ViewModels;
 
-    using Microsoft.AspNetCore.Mvc;
-
     using Microsoft.EntityFrameworkCore;
 
     public class DocumentsService : IDocumentsService

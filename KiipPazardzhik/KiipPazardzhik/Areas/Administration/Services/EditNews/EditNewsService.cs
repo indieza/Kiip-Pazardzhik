@@ -10,13 +10,10 @@ namespace KiipPazardzhik.Areas.Administration.Services.EditNews
     using System.Text.RegularExpressions;
     using System.Threading.Tasks;
 
-    using CloudinaryDotNet;
-
     using KiipPazardzhik.Areas.Administration.ViewModels.EditNews.InputModels;
     using KiipPazardzhik.Areas.Administration.ViewModels.EditNews.ViewModels;
     using KiipPazardzhik.Data;
     using KiipPazardzhik.Models;
-    using KiipPazardzhik.Services.Cloud;
 
     using Microsoft.AspNetCore.Hosting;
     using Microsoft.EntityFrameworkCore;
